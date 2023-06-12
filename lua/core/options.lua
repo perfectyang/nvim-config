@@ -1,37 +1,4 @@
 local opt = vim.opt
---
--- -- 行号
--- opt.relativenumber = true
--- opt.number = true
---
--- -- 缩进
--- opt.tabstop = 2
--- opt.shiftwidth = 2
--- opt.expandtab = true
--- opt.autoindent = true
---
--- -- 防止包裹
--- opt.wrap = false
---
--- -- 光标行
--- opt.cursorline = true
---
--- -- 启用鼠标
--- opt.mouse:append("a")
---
--- -- 系统剪贴板
--- opt.clipboard:append("unnamedplus")
---
--- -- 默认新窗口右和下
--- opt.splitright = true
--- opt.splitbelow = true
---
--- -- 搜索
--- opt.ignorecase = true
--- opt.smartcase = true
---
--- -- backspace
--- opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
 
 local options = {
 	backup = false, -- creates a backup file
@@ -57,7 +24,7 @@ local options = {
 	undofile = true, -- enable persistent undo
 	updatetime = 300, -- faster completion (4000ms default)
 	writebackup = false, -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
-	expandtab = true, -- convert tabs to spaces
+	expandtab = false, -- convert tabs to spaces
 	autoindent = true,
 	shiftwidth = 2, -- the number of spaces inserted for each indentation
 	tabstop = 2, -- insert 2 spaces for a tab
@@ -65,7 +32,7 @@ local options = {
 	cursorcolumn = false, -- cursor column.
 	number = true, -- set numbered lines
 	relativenumber = true, -- set relative numbered lines
-	numberwidth = 4, -- set number column width to 2 {default 4}
+	numberwidth = 2, -- set number column width to 2 {default 4}
 	signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
 	wrap = false, -- display lines as one long line
 	scrolloff = 8, -- keep 8 height offset from above and bottom

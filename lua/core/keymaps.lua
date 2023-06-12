@@ -12,10 +12,8 @@ keymap.set("i", "jj", "<ESC>")
 
 -- 窗口
 -- ---------- 正常模式 ---------- ---
-keymap.set("n", "<leader>sv", "<C-w>v") -- 水平新增窗口
-keymap.set("n", "<leader>sh", "<Cnw>s") -- 垂直新增窗口
 -- keymap.set("n", "<leader>q", ":q!<CR>") -- 垂直新增窗口
-keymap.set("n", "<leader>;", ":w<CR>") -- 垂直新增窗口
+keymap.set("n", "<leader>;", ":w<CR>")
 keymap.set("n", "J", "5j")
 keymap.set("n", "K", "5k")
 keymap.set("v", "J", "5j")
@@ -30,11 +28,27 @@ keymap.set("n", "yaf", "va{Vy")
 keymap.set("n", "mm", "mM")
 keymap.set("n", "mn", "mN")
 keymap.set("n", "mb", "mB")
+keymap.set("n", "ma", "mA")
+keymap.set("n", "`a", "`A")
 keymap.set("n", "`b", "`B")
 keymap.set("n", "`n", "`N")
 keymap.set("n", "`m", "`M")
+keymap.set("n", "cL", "c$")
+keymap.set("n", "cH", "c0")
+keymap.set("n", "dL", "d$")
+keymap.set("n", "yp", "Yp")
 
 -- keymap.set("n", "<Space>", "zc")
+
+-- 分割窗口
+keymap.set("n", "<leader>sc", ":close<CR>") -- 关闭窗口
+keymap.set("n", "<leader>oy", ":only<CR>")
+keymap.set("n", "<leader>sv", ":vsplit<CR>") -- 水平新增窗口
+keymap.set("n", "<leader>sh", ":split<CR>") -- 垂直新增窗口
+
+keymap.set("n", "gl", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", { noremap = true })
+keymap.set("n", "glt", "<cmd>lua require('goto-preview').goto_preview_type_definition()<CR>", { noremap = true })
+-- keymap.set("n", "gP", "<cmd>lua require('goto-preview').close_all_win()<CR>", { noremap = true })
 
 -- aff
 

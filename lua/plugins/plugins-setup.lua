@@ -104,6 +104,13 @@ return require("packer").startup(function(use)
 
 	use("rafi/awesome-vim-colorschemes")
 	use("APZelos/blamer.nvim")
+	use("mg979/vim-visual-multi")
+	use({
+		"rmagatti/goto-preview",
+		config = function()
+			require("goto-preview").setup({})
+		end,
+	})
 
 	if packer_bootstrap then
 		require("packer").sync()

@@ -84,10 +84,25 @@ _G.packer_plugins = {
     path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["awesome-vim-colorschemes"] = {
+    loaded = true,
+    path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/awesome-vim-colorschemes",
+    url = "https://github.com/rafi/awesome-vim-colorschemes"
+  },
+  ["blamer.nvim"] = {
+    loaded = true,
+    path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/blamer.nvim",
+    url = "https://github.com/APZelos/blamer.nvim"
+  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
+  },
+  ["cmp-buffer"] = {
+    loaded = true,
+    path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/cmp-buffer",
+    url = "https://github.com/hrsh7th/cmp-buffer"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
@@ -109,6 +124,11 @@ _G.packer_plugins = {
     path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/coc.nvim",
     url = "https://github.com/neoclide/coc.nvim"
   },
+  ["code_runner.nvim"] = {
+    loaded = true,
+    path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/code_runner.nvim",
+    url = "https://github.com/CRAG666/code_runner.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -118,6 +138,22 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
+  ["inc-rename.nvim"] = {
+    config = { "\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15inc_rename\frequire\0" },
+    loaded = true,
+    path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/inc-rename.nvim",
+    url = "https://github.com/smjonas/inc-rename.nvim"
+  },
+  ["leap.nvim"] = {
+    loaded = true,
+    path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/leap.nvim",
+    url = "https://github.com/ggandor/leap.nvim"
+  },
+  ["lspkind.nvim"] = {
+    loaded = true,
+    path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
+    url = "https://github.com/onsails/lspkind.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -129,10 +165,20 @@ _G.packer_plugins = {
     path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
     url = "https://github.com/williamboman/mason-lspconfig.nvim"
   },
+  ["mason-null-ls.nvim"] = {
+    loaded = true,
+    path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/mason-null-ls.nvim",
+    url = "https://github.com/jayp0521/mason-null-ls.nvim"
+  },
   ["mason.nvim"] = {
     loaded = true,
     path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
+  },
+  ["null-ls.nvim"] = {
+    loaded = true,
+    path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-autopairs"] = {
     loaded = true,
@@ -150,7 +196,6 @@ _G.packer_plugins = {
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-surround"] = {
-    config = { "\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0" },
     loaded = true,
     path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/nvim-surround",
     url = "https://github.com/kylechui/nvim-surround"
@@ -164,6 +209,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
+  ["nvim-ts-context-commentstring"] = {
+    loaded = true,
+    path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
+    url = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
   },
   ["nvim-ts-rainbow"] = {
     loaded = true,
@@ -185,6 +235,16 @@ _G.packer_plugins = {
     path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["telescope-fzf-native.nvim"] = {
+    loaded = true,
+    path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
+    url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
+  },
+  ["telescope-ui-select.nvim"] = {
+    loaded = true,
+    path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/telescope-ui-select.nvim",
+    url = "https://github.com/nvim-telescope/telescope-ui-select.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -195,18 +255,38 @@ _G.packer_plugins = {
     path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
   },
+  ["typescript.nvim"] = {
+    loaded = true,
+    path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/typescript.nvim",
+    url = "https://github.com/jose-elias-alvarez/typescript.nvim"
+  },
+  ["vim-code-dark"] = {
+    loaded = true,
+    path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/vim-code-dark",
+    url = "https://github.com/tomasiser/vim-code-dark"
+  },
+  ["vim-floaterm"] = {
+    loaded = true,
+    path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/vim-floaterm",
+    url = "https://github.com/voldikss/vim-floaterm"
+  },
   ["vim-tmux-navigator"] = {
     loaded = true,
     path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",
     url = "https://github.com/christoomey/vim-tmux-navigator"
+  },
+  ["vscode.nvim"] = {
+    loaded = true,
+    path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/vscode.nvim",
+    url = "https://github.com/Mofiqul/vscode.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-surround
-time([[Config for nvim-surround]], true)
-try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0", "config", "nvim-surround")
-time([[Config for nvim-surround]], false)
+-- Config for: inc-rename.nvim
+time([[Config for inc-rename.nvim]], true)
+try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15inc_rename\frequire\0", "config", "inc-rename.nvim")
+time([[Config for inc-rename.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

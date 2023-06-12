@@ -20,7 +20,6 @@ end
 
 -- configure nvim-tree
 nvimtree.setup({
-
 	open_on_tab = false,
 	sync_root_with_cwd = true,
 	reload_on_bufenter = true,
@@ -61,10 +60,18 @@ nvimtree.setup({
 		ignore_list = {},
 	},
 
+	filters = {
+		dotfiles = false,
+		-- git_clean = false,
+		-- no_buffer = false,
+		-- custom = {},
+		-- exclude = {},
+	},
+
 	-- quit_on_open = 0,
 	git = {
 		enable = true,
-		ignore = true,
+		ignore = false,
 		timeout = 400,
 	},
 })
