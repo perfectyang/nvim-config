@@ -25,5 +25,6 @@ require("plugins/lsp/null-ls")
 require("plugins/colorschme")
 require("plugins/code-runner")
 require("plugins/goto-preview")
+require("plugins/indent-blankline")
 
 require("leap").add_default_mappings()
