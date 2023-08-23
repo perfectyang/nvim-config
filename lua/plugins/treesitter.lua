@@ -2,7 +2,7 @@ require("nvim-treesitter.configs").setup({
 	-- 添加不同语言
 	ensure_installed = {
 		"vim",
-		"help",
+		-- "help",
 		"bash",
 		"c",
 		"cpp",

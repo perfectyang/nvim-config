@@ -113,6 +113,13 @@ return require("packer").startup(function(use)
 	})
 
 	use("lukas-reineke/indent-blankline.nvim")
+	use({
+		"kdheepak/lazygit.nvim",
+		-- optional for floating window border decoration
+		requires = {
+			"nvim-lua/plenary.nvim",
+		},
+	})
 
 	if packer_bootstrap then
 		require("packer").sync()

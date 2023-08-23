@@ -13,7 +13,7 @@ keymap.set("i", "jj", "<ESC>")
 -- 窗口
 -- ---------- 正常模式 ---------- ---
 -- keymap.set("n", "<leader>q", ":q!<CR>") -- 垂直新增窗口
-keymap.set("n", "<leader>;", ":w<CR>")
+keymap.set("n", "<leader>;", ":w!<CR>")
 keymap.set("n", "J", "5j")
 keymap.set("n", "K", "5k")
 keymap.set("v", "J", "5j")
@@ -113,6 +113,8 @@ keymap.set("n", "<leader>q", ":bp<bar>sp<bar>bn<bar>bd<CR>")
 -- nvim-tree
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 
+keymap.set("n", "<leader>gg", ":LazyGit<CR>")
+
 -- 浮动窗口
 
 G.floaterm_keymap_kill = "<F7>"
@@ -120,9 +122,11 @@ G.floaterm_keymap_new = "<F8>"
 G.floaterm_keymap_toggle = "<F9>"
 G.floaterm_keymap_next = "<F10>"
 G.floaterm_position = "bottomRight"
--- G.floaterm_title = "杨国唯大帅哥"
+G.floaterm_title = "<------来了老弟^_^----->: $1/$2"
 G.floaterm_width = 0.8
 G.floaterm_height = 0.9
+G.floaterm_giteditor = false
+G.floaterm_opener = 'drop'
 
 -- git commit标记显示
 G.blamer_enabled = 1
