@@ -35,16 +35,16 @@ nvimtree.setup({
 	on_attach = my_on_attach,
 
 	-- change folder arrow icons
-	renderer = {
-		icons = {
-			glyphs = {
-				folder = {
-					arrow_closed = "", -- arrow when folder is closed
-					arrow_open = "", -- arrow when folder is open
-				},
-			},
-		},
-	},
+	-- renderer = {
+	-- 	icons = {
+	-- 		glyphs = {
+	-- 			folder = {
+	-- 				arrow_closed = "+", -- arrow when folder is closed
+	-- 				arrow_open = "-", -- arrow when folder is open
+	-- 			},
+	-- 		},
+	-- 	},
+	-- },
 	-- disable window_picker for
 	-- explorer to work well with
 	-- window splits

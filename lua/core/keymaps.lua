@@ -84,13 +84,6 @@ vim.opt.signcolumn = "yes"
 -- keymap.set("n", "gi", "<Plug>(coc-implementation)", {silent = true})
 -- keymap.set("n", "gr", "<Plug>(coc-references)", {silent = true})
 
--- telescope
-keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
-keymap.set("n", "<leader>fc", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
-keymap.set("n", "<leader>fs", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
-keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
-keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
-
 -- telescope git commands (not on youtube nvim video)
 keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>") -- list all git commits (use <cr> to checkout) ["gc" for git commits]
 keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>") -- list git commits for current file/buffer (use <cr> to checkout) ["gfc" for git file commits]
@@ -122,11 +115,11 @@ G.floaterm_keymap_new = "<F8>"
 G.floaterm_keymap_toggle = "<F9>"
 G.floaterm_keymap_next = "<F10>"
 G.floaterm_position = "bottomRight"
-G.floaterm_title = "<------来了老弟^_^----->: $1/$2"
+G.floaterm_title = "$1/$2"
 G.floaterm_width = 0.8
 G.floaterm_height = 0.9
-G.floaterm_giteditor = false
-G.floaterm_opener = 'drop'
+-- G.floaterm_giteditor = false
+-- G.floaterm_opener = "drop"
 
 -- git commit标记显示
 G.blamer_enabled = 1
