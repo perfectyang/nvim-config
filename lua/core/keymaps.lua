@@ -118,8 +118,8 @@ G.floaterm_position = "bottomRight"
 G.floaterm_title = "$1/$2"
 G.floaterm_width = 0.8
 G.floaterm_height = 0.9
--- G.floaterm_giteditor = false
--- G.floaterm_opener = "drop"
+G.floaterm_giteditor = true
+G.floaterm_opener = "edit"
 
 -- git commit标记显示
 G.blamer_enabled = 1
