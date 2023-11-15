@@ -120,6 +120,16 @@ return require("packer").startup(function(use)
 			"nvim-lua/plenary.nvim",
 		},
 	})
+	-- Merge Tool
+	use("sindrets/diffview.nvim")
+
+	-- which-key
+	use({ "folke/which-key.nvim", tag = "v1.5.1" })
+
+	-- flask
+	use({ "folke/flash.nvim", tag = "v1.18.2" })
+
+	use({ "ThePrimeagen/harpoon" })
 
 	if packer_bootstrap then
 		require("packer").sync()

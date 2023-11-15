@@ -1,3 +1,24 @@
+-- local utils = {}
+--
+-- local scopes = { o = vim.o, b = vim.bo, w = vim.wo }
+--
+-- function utils.opt(scope, key, value)
+-- 	scopes[scope][key] = value
+-- 	if scope ~= "o" then
+-- 		scopes["o"][key] = value
+-- 	end
+-- end
+--
+-- function utils.map(mode, lhs, rhs, opts)
+-- 	local options = { noremap = true }
+-- 	if opts then
+-- 		options = vim.tbl_extend("force", options, opts)
+-- 	end
+-- 	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+-- end
+
+-- return utils
+
 vim.g.mapleader = ";"
 local keymap = vim.keymap
 local G = vim.g
@@ -106,7 +127,9 @@ keymap.set("n", "<leader>q", ":bp<bar>sp<bar>bn<bar>bd<CR>")
 -- nvim-tree
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 
-keymap.set("n", "<leader>gg", ":LazyGit<CR>")
+-- keymap.set("n", "<leader>gg", ":LazyGit<CR>")
+
+keymap.set("n", "f", ":bp<bar>sp<bar>bn<bar>bd<CR>")
 
 -- 浮动窗口
 
@@ -115,7 +138,7 @@ G.floaterm_keymap_new = "<F8>"
 G.floaterm_keymap_toggle = "<F9>"
 G.floaterm_keymap_next = "<F10>"
 G.floaterm_position = "bottomRight"
-G.floaterm_title = "$1/$2"
+G.floaterm_title = "Perfectyang-$1/$2"
 G.floaterm_width = 0.8
 G.floaterm_height = 0.9
 G.floaterm_giteditor = true
@@ -123,8 +146,64 @@ G.floaterm_opener = "edit"
 
 -- git commit标记显示
 G.blamer_enabled = 1
-G.blamer_delay = 1000
+G.blamer_delay = 300
 G.blamer_show_in_insert_modes = 0
 G.blamer_date_format = "%y/%m/%d"
 G.blamer_relative_time = 1
 -- G.blamer_prefix = " > "
+
+-- Harpoon Which-key mappings
+-- local wk = require("which-key")
+-- wk.register({
+-- 	-- The first key you are pressing
+-- 	h = {
+-- 		name = "harpoon",
+-- 		-- the second key
+-- 		x = {
+-- 			function()
+-- 				require("harpoon.mark").add_file()
+-- 			end,
+-- 			"Mark file",
+-- 		},
+-- 	},
+-- }, { prefix = "<leader>" })
+
+-- flash
+-- wk.register({
+-- 	-- flash search
+-- 	l = {
+-- 		name = "flash",
+-- 		s = {
+-- 			function()
+-- 				require("flash").jump()
+-- 			end,
+-- 			"Flash Jump",
+-- 		},
+-- 		t = {
+-- 			function()
+-- 				require("flash").treesitter()
+-- 			end,
+-- 			"Flash Treesitter",
+-- 		},
+-- 		r = {
+-- 			function()
+-- 				require("flash").treesitter_search()
+-- 			end,
+-- 			"Flash Treesitter Search",
+-- 		},
+-- 	},
+-- }, { prefix = "<leader>" })
+
+-- telescope
+local builtin = require("telescope.builtin")
+keymap.set("n", "<leader>ff", builtin.find_files, {}) -- find files within current working directory, respects .gitignore
+keymap.set("n", "<leader>fc", builtin.live_grep, {}) -- 环境里要安装ripgrep find string in current working directory as you type
+-- keymap.set("n", "<leader>fb", builtin.buffers, {}) -- list open buffers in current neovim instance
+keymap.set("n", "<leader>fs", builtin.grep_string, {}) -- find string under cursor in current working directory
+keymap.set("n", "<leader>fh", builtin.help_tags, {}) -- list available help tags
+
+-- harpoon
+keymap.set("n", "<leader>mm", require("harpoon.mark").add_file)
+-- keymap.set("n", "<leader>mn", require("harpoon.ui").nav_next)
+-- keymap.set("n", "<leader>mb", require("harpoon.ui").nav_prev)
+keymap.set("n", "<leader>fb", ":Telescope harpoon marks<CR>") -- list current changes per file with diff preview ["gs" for git status]

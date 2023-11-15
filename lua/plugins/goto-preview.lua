@@ -1,5 +1,5 @@
 require("goto-preview").setup({
-	width = 180, -- Width of the floating window
+	width = 90, -- Width of the floating window
 	height = 20, -- Height of the floating window
 	border = { "↖", "─", "┐", "│", "┘", "─", "└", "│" }, -- Border characters of the floating window
 	default_mappings = false, -- Bind default mappings

@@ -1,7 +1,3 @@
---
---
---
---
 require("plugins/plugins-setup")
 
 require("core.options")
@@ -27,5 +23,6 @@ require("plugins/code-runner")
 require("plugins/goto-preview")
 require("plugins/indent-blankline")
 require("plugins/lazygit")
+require("plugins/pluginconfigs")
 
 require("leap").add_default_mappings()
