@@ -2,10 +2,10 @@ require("nvim-treesitter.configs").setup({
 	-- 添加不同语言
 	ensure_installed = {
 		"vim",
-		"help",
+		-- "help",
 		"bash",
-		"c",
-		"cpp",
+		-- "c",
+		-- "cpp",
 		"javascript",
 		"json",
 		"lua",
@@ -16,7 +16,6 @@ require("nvim-treesitter.configs").setup({
 		"rust",
 		"markdown",
 		"markdown_inline",
-		"vim",
 		"dockerfile",
 		"gitignore",
 		"html",
@@ -26,11 +25,11 @@ require("nvim-treesitter.configs").setup({
 	indent = { enable = true },
 
 	-- 不同括号颜色区分
-	rainbow = {
-		enable = true,
-		extended_mode = true,
-		max_file_lines = nil,
-	},
+	-- rainbow = {
+	-- 	enable = true,
+	-- 	extended_mode = true,
+	-- 	max_file_lines = nil,
+	-- },
 	context_commentstring = {
 		enable = true,
 		config = {
