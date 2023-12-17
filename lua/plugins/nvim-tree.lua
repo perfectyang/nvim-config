@@ -14,27 +14,37 @@ vim.g.nvim_tree_auto_close = 1
 vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
 
 -- local api = require("nvim-tree.api")
--- local function copyName()
--- 	api.fs.copy.filename()
--- end
+
+local function my_on_attach(bufnr)
+	local api = require("nvim-tree.api")
+	-- local function opts(desc)
+	-- 	return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+	-- end
+
+	api.config.mappings.default_on_attach(bufnr)
+	-- custom mappings
+	vim.keymap.del("n", "e", { buffer = bufnr })
+	vim.keymap.del("n", "x", { buffer = bufnr })
+end
 
 -- configure nvim-tree
 nvimtree.setup({
-
 	open_on_tab = false,
 	sync_root_with_cwd = true,
 	reload_on_bufenter = true,
+	on_attach = my_on_attach,
+
 	-- change folder arrow icons
-	renderer = {
-		icons = {
-			glyphs = {
-				folder = {
-					arrow_closed = "", -- arrow when folder is closed
-					arrow_open = "", -- arrow when folder is open
-				},
-			},
-		},
-	},
+	-- renderer = {
+	-- 	icons = {
+	-- 		glyphs = {
+	-- 			folder = {
+	-- 				arrow_closed = "+", -- arrow when folder is closed
+	-- 				arrow_open = "-", -- arrow when folder is open
+	-- 			},
+	-- 		},
+	-- 	},
+	-- },
 	-- disable window_picker for
 	-- explorer to work well with
 	-- window splits
@@ -46,19 +56,27 @@ nvimtree.setup({
 		},
 	},
 	view = {
-		mappings = {
-			list = {
-				{ key = "e", action = "" },
-				{ key = "x", action = "" },
-				-- { key = "A", action = "copyName", action_cb = copyName },
-			},
-		},
+		-- mappings = {
+		-- 	list = {
+		-- 		{ key = "e", action = "" },
+		-- 		{ key = "x", action = "" },
+		-- 		-- { key = "A", action = "copyName", action_cb = copyName },
+		-- 	},
+		-- },
 	},
 
 	update_focused_file = {
 		enable = true,
 		update_root = true,
 		ignore_list = {},
+	},
+
+	filters = {
+		dotfiles = false,
+		-- git_clean = false,
+		-- no_buffer = false,
+		-- custom = {},
+		-- exclude = {},
 	},
 
 	-- quit_on_open = 0,

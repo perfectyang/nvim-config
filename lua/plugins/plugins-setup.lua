@@ -63,7 +63,7 @@ return require("packer").startup(function(use)
 	use("lewis6991/gitsigns.nvim") -- 左则git提示
 	use({
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.1", -- 文件检索
+		tag = "0.1.4", -- 文件检索
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
@@ -104,6 +104,32 @@ return require("packer").startup(function(use)
 
 	use("rafi/awesome-vim-colorschemes")
 	use("APZelos/blamer.nvim")
+	use("mg979/vim-visual-multi")
+	use({
+		"rmagatti/goto-preview",
+		config = function()
+			require("goto-preview").setup({})
+		end,
+	})
+
+	use("lukas-reineke/indent-blankline.nvim")
+	use({
+		"kdheepak/lazygit.nvim",
+		-- optional for floating window border decoration
+		requires = {
+			"nvim-lua/plenary.nvim",
+		},
+	})
+	-- Merge Tool
+	use("sindrets/diffview.nvim")
+
+	-- which-key
+	use({ "folke/which-key.nvim", tag = "v1.5.1" })
+
+	-- flask
+	use({ "folke/flash.nvim", tag = "v1.18.2" })
+
+	use({ "ThePrimeagen/harpoon" })
 
 	if packer_bootstrap then
 		require("packer").sync()

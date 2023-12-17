@@ -21,7 +21,7 @@ require("nvim-treesitter.configs").setup({
 		"html",
 	}, -- one of "all" or a list of languages
 
-	highlight = { enable = true },
+	highlight = { enable = false },
 	indent = { enable = true },
 
 	-- 不同括号颜色区分
