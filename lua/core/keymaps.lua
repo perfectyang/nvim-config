@@ -1,27 +1,7 @@
--- local utils = {}
---
--- local scopes = { o = vim.o, b = vim.bo, w = vim.wo }
---
--- function utils.opt(scope, key, value)
--- 	scopes[scope][key] = value
--- 	if scope ~= "o" then
--- 		scopes["o"][key] = value
--- 	end
--- end
---
--- function utils.map(mode, lhs, rhs, opts)
--- 	local options = { noremap = true }
--- 	if opts then
--- 		options = vim.tbl_extend("force", options, opts)
--- 	end
--- 	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
--- end
-
--- return utils
-
 vim.g.mapleader = ";"
 local keymap = vim.keymap
 local G = vim.g
+vim.g.skip_ts_context_commentstring_module = true
 
 -- ---------- 插入模式 ---------- ---
 keymap.set("i", "jj", "<ESC>")
@@ -204,6 +184,7 @@ keymap.set("n", "<leader>fh", builtin.help_tags, {}) -- list available help tags
 
 -- harpoon
 keymap.set("n", "<leader>mm", require("harpoon.mark").add_file)
--- keymap.set("n", "<leader>mn", require("harpoon.ui").nav_next)
--- keymap.set("n", "<leader>mb", require("harpoon.ui").nav_prev)
+keymap.set("n", "<leader>mn", require("harpoon.ui").nav_next)
+keymap.set("n", "<leader>mb", require("harpoon.ui").nav_prev)
 keymap.set("n", "<leader>fb", ":Telescope harpoon marks<CR>") -- list current changes per file with diff preview ["gs" for git status]
+keymap.set("n", "<leader>me", ":lua require('harpoon.ui').toggle_quick_menu()<CR>") -- list current changes per file with diff preview ["gs" for git status]

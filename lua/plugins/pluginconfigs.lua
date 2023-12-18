@@ -1,7 +1,5 @@
 -- which-key
--- require("which-key").setup({
--- 	plugins = {
--- 		marks = true, -- shows a list of your marks on ' and `
+
 -- 		registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
 -- 		-- the presets plugin, adds help for a bunch of default keybindings in Neovim
 -- 		-- No actual key bindings are created
@@ -63,7 +61,7 @@ require("harpoon").setup({
 		enter_on_sendcmd = false,
 
 		-- closes any tmux windows harpoon that harpoon creates when you close Neovim.
-		tmux_autoclose_windows = false,
+		tmux_autoclose_windows = true,
 
 		-- filetypes that you want to prevent from adding to the harpoon list menu.
 		excluded_filetypes = { "harpoon" },

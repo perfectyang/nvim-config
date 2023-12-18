@@ -130,6 +130,7 @@ return require("packer").startup(function(use)
 	use({ "folke/flash.nvim", tag = "v1.18.2" })
 
 	use({ "ThePrimeagen/harpoon" })
+	use({ "rlue/vim-barbaric" })
 
 	if packer_bootstrap then
 		require("packer").sync()
