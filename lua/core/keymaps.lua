@@ -92,7 +92,7 @@ keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>") -- list git bra
 keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current changes per file with diff preview ["gs" for git status]
 
 -- restart lsp server (not on youtube nvim video)
-keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
+-- keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
 
 -- 取消高亮
 keymap.set("n", "<CR>", ":nohl<CR>")
@@ -124,7 +124,7 @@ G.floaterm_height = 0.9
 G.floaterm_giteditor = true
 G.floaterm_opener = "edit"
 
--- git commit标记显示
+-- -- git commit标记显示
 G.blamer_enabled = 1
 G.blamer_delay = 300
 G.blamer_show_in_insert_modes = 0
