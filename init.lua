@@ -3,8 +3,6 @@ require("plugins/plugins-setup")
 require("core.options")
 require("core.keymaps")
 
--- require("nvim-treesitter.install").prefer_git = true
-
 -- 插件
 require("plugins/lualine")
 require("plugins/treesitter")
@@ -28,5 +26,3 @@ require("plugins/lazygit")
 require("plugins/pluginconfigs")
 
 require("leap").add_default_mappings()
-
-require("core.autocmd")

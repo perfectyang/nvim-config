@@ -37,13 +37,13 @@
 -- 	},
 -- })
 
-require("flash").setup({
-	modes = {
-		char = {
-			jump_labels = true,
-		},
-	},
-})
+-- require("flash").setup({
+-- 	modes = {
+-- 		char = {
+-- 			jump_labels = true,
+-- 		},
+-- 	},
+-- })
 
 -- Harpoon telescope extension
 require("telescope").load_extension("harpoon")
