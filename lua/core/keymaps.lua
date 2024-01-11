@@ -49,6 +49,7 @@ keymap.set("n", "<leader>sh", ":split<CR>") -- 垂直新增窗口
 
 keymap.set("n", "gl", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", { noremap = true })
 keymap.set("n", "glt", "<cmd>lua require('goto-preview').goto_preview_type_definition()<CR>", { noremap = true })
+keymap.set("n", "gpr", "<cmd>lua require('goto-preview').goto_preview_references()<CR>", { noremap = true })
 -- keymap.set("n", "gP", "<cmd>lua require('goto-preview').close_all_win()<CR>", { noremap = true })
 
 -- aff
@@ -108,8 +109,7 @@ keymap.set("n", "<leader>q", ":bp<bar>sp<bar>bn<bar>bd<CR>")
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 
 -- keymap.set("n", "<leader>gg", ":LazyGit<CR>")
-
-keymap.set("n", "f", ":bp<bar>sp<bar>bn<bar>bd<CR>")
+-- keymap.set("n", "f", ":bp<bar>sp<bar>bn<bar>bd<CR>")
 
 -- 浮动窗口
 
@@ -188,3 +188,35 @@ keymap.set("n", "<leader>mn", require("harpoon.ui").nav_next)
 keymap.set("n", "<leader>mb", require("harpoon.ui").nav_prev)
 keymap.set("n", "<leader>fb", ":Telescope harpoon marks<CR>") -- list current changes per file with diff preview ["gs" for git status]
 keymap.set("n", "<leader>me", ":lua require('harpoon.ui').toggle_quick_menu()<CR>") -- list current changes per file with diff preview ["gs" for git status]
+
+-- inc-rename
+-- vim.keymap.set("n", "<leader>rn", function()
+-- 	return ":IncRename " .. vim.fn.expand("<cword>")
+-- end, { expr = true })
+-- vim.keymap.set("n", "<leader>rn", ":IncRename ")
+
+-- 文本替换
+-- vim.keymap.set("n", "<leader>S", '<cmd>lua require("spectre").toggle()<CR>', {
+-- 	desc = "Toggle Spectre",
+-- })
+vim.keymap.set("n", "<leader>se", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
+	desc = "Search current word",
+})
+vim.keymap.set("v", "<leader>se", '<esc><cmd>lua require("spectre").open_visual()<CR>', {
+	desc = "Search current word",
+})
+vim.keymap.set("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
+	desc = "Search on current file",
+})
+vim.keymap.set("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
+	desc = "Search on current file",
+})
+
+-- keymap.set("n", ":", "<cmd>FineCmdline<CR>")
+
+function Todo()
+	-- print("hello world perfectyang!!!")
+	require("core/whid").whid()
+end
+
+keymap.set("n", "<leader>l", Todo)

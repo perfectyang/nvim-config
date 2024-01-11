@@ -84,12 +84,12 @@ return require("packer").startup(function(use)
 
 	use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
 	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
-	use({
-		"smjonas/inc-rename.nvim",
-		config = function()
-			require("inc_rename").setup()
-		end,
-	})
+	-- use({
+	-- 	"smjonas/inc-rename.nvim",
+	-- 	config = function()
+	-- 		require("inc_rename").setup()
+	-- 	end,
+	-- })
 	-- formatting & linting
 	use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
 	use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
@@ -131,6 +131,25 @@ return require("packer").startup(function(use)
 
 	use({ "ThePrimeagen/harpoon" })
 	use({ "rlue/vim-barbaric" })
+
+	use({ "craftzdog/solarized-osaka.nvim" })
+
+	use({ "nvim-pack/nvim-spectre" })
+
+	-- use({
+	-- 	"VonHeikemen/fine-cmdline.nvim",
+	-- 	requires = {
+	-- 		{ "MunifTanjim/nui.nvim" },
+	-- 	},
+	-- })
+
+	-- use({
+	-- 	"ray-x/navigator.lua",
+	-- 	requires = {
+	-- 		{ "ray-x/guihua.lua", run = "cd lua/fzy && make" },
+	-- 		{ "neovim/nvim-lspconfig" },
+	-- 	},
+	-- })
 
 	if packer_bootstrap then
 		require("packer").sync()

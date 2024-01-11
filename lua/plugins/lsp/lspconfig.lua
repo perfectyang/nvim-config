@@ -26,7 +26,7 @@ local on_attach = function(client, bufnr)
 	-- set keybinds
 	keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
 	-- keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- got to declaration
-	keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- see definition and make edits in window
+	keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR> ", opts) -- see definition and make edits in window
 	-- keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- go to implementation
 	-- keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- go to implementation
 	keymap.set("n", "gh", vim.lsp.buf.code_action, opts) -- see available code actions

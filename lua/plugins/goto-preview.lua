@@ -1,6 +1,6 @@
 require("goto-preview").setup({
 	width = 90, -- Width of the floating window
-	height = 20, -- Height of the floating window
+	height = 30, -- Height of the floating window
 	border = { "↖", "─", "┐", "│", "┘", "─", "└", "│" }, -- Border characters of the floating window
 	default_mappings = false, -- Bind default mappings
 	debug = false, -- Print debug information
@@ -9,6 +9,7 @@ require("goto-preview").setup({
 	post_open_hook = nil, -- A function taking two arguments, a buffer and a window to be ran as a hook.
 	references = { -- Configure the telescope UI for slowing the references cycling window.
 		telescope = require("telescope.themes").get_dropdown({ hide_preview = false }),
+		-- telescope = require("telescope.themes").get_cursor({ hide_preview = false }),
 	},
 	-- These two configs can also be passed down to the goto-preview definition and implementation calls for one off "peak" functionality.
 	focus_on_open = true, -- Focus the floating window when opening it.
