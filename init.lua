@@ -24,5 +24,6 @@ require("plugins/goto-preview")
 require("plugins/indent-blankline")
 -- require("plugins/lazygit")
 require("plugins/pluginconfigs")
+require("plugins/demoPlugin")
 
--- require("leap").add_default_mappings()
+require("leap").add_default_mappings()

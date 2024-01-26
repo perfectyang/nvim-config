@@ -103,6 +103,7 @@ keymap.set("n", "<leader>n", ":bnext<CR>")
 keymap.set("n", "<leader>b", ":bprevious<CR>")
 
 keymap.set("n", "<leader>q", ":bp<bar>sp<bar>bn<bar>bd<CR>")
+keymap.set("n", "<leader>c", ":bufdo bd<CR>")
 
 -- ---------- 插件 ---------- ---
 -- nvim-tree
@@ -213,10 +214,9 @@ vim.keymap.set("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search(
 })
 
 -- keymap.set("n", ":", "<cmd>FineCmdline<CR>")
-
-function Todo()
-	-- print("hello world perfectyang!!!")
-	require("core/whid").whid()
-end
-
-keymap.set("n", "<leader>l", Todo)
+--
+-- function Todo()
+-- 	require("core/whid").whid()
+-- end
+--
+-- keymap.set("n", "<leader>l", Todo)

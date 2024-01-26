@@ -65,6 +65,11 @@ nvimtree.setup({
 		-- },
 	},
 
+	hijack_directories = {
+		enable = true,
+		auto_open = true,
+	},
+
 	update_focused_file = {
 		enable = true,
 		update_root = true,
@@ -79,7 +84,7 @@ nvimtree.setup({
 		-- exclude = {},
 	},
 
-	-- quit_on_open = 0,
+	-- quit_on_open = 1,
 	git = {
 		enable = true,
 		ignore = false,

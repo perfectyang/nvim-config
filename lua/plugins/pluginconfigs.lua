@@ -1,5 +1,6 @@
 -- which-key
 
+local G = vim.g
 -- 		registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
 -- 		-- the presets plugin, adds help for a bunch of default keybindings in Neovim
 -- 		-- No actual key bindings are created
@@ -115,7 +116,7 @@ require("solarized-osaka").setup({
 })
 
 -- 文本替换
-require("spectre").setup()
+-- require("spectre").setup()
 
 -- require("fine-cmdline").setup({
 -- 	cmdline = {
@@ -156,3 +157,8 @@ require("spectre").setup()
 -- 		disable_lsp = { "pylsd", "sqlls" },
 -- 	},
 -- })
+
+G.peekup_open = "<leader>l"
+require("nvim-peekup.config").on_keystroke["delay"] = ""
+-- require("nvim-peekup.config").on_keystroke["autoclose"] = false
+require("nvim-peekup.config").geometry["title"] = "<<<<<<------来了老弟----->>>>>"
