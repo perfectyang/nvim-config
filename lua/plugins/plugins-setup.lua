@@ -136,7 +136,7 @@ return require("packer").startup(function(use)
 
 	use({ "nvim-pack/nvim-spectre" })
 
-	use({ "nvim-telescope/telescope-file-browser.nvim" })
+	-- use({ "nvim-telescope/telescope-file-browser.nvim" })
 
 	use({ "gennaro-tedesco/nvim-peekup" })
 
