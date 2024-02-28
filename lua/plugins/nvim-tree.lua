@@ -56,6 +56,22 @@ nvimtree.setup({
 		},
 	},
 	view = {
+		side = "left",
+		number = false,
+		relativenumber = true,
+		width = 30,
+		-- float = {
+		-- 	enable = true,
+		-- 	quit_on_focus_loss = true,
+		-- 	open_win_config = {
+		-- 		relative = "editor",
+		-- 		border = "rounded",
+		-- 		width = 40,
+		-- 		height = 40,
+		-- 		row = 1,
+		-- 		col = 1,
+		-- 	},
+		-- },
 		-- mappings = {
 		-- 	list = {
 		-- 		{ key = "e", action = "" },
@@ -64,6 +80,29 @@ nvimtree.setup({
 		-- 	},
 		-- },
 	},
+
+	-- view = {
+	--   centralize_selection = false,
+	--   cursorline = true,
+	--   debounce_delay = 15,
+	--   preserve_window_proportions = false,
+	--   number = false,
+	--   relativenumber = false,
+	--   signcolumn = "yes",
+	--   width = 30,
+	--   float = {
+	--     enable = false,
+	--     quit_on_focus_loss = true,
+	--     open_win_config = {
+	--       relative = "editor",
+	--       border = "rounded",
+	--       width = 30,
+	--       height = 30,
+	--       row = 1,
+	--       col = 1,
+	--     },
+	--   },
+	-- },
 
 	hijack_directories = {
 		enable = true,

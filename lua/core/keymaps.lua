@@ -101,8 +101,8 @@ keymap.set("n", "<CR>", ":nohl<CR>")
 -- 切换buffer
 keymap.set("n", "<leader>n", ":bnext<CR>")
 keymap.set("n", "<leader>b", ":bprevious<CR>")
-
 keymap.set("n", "<leader>q", ":bp<bar>sp<bar>bn<bar>bd<CR>")
+-- 清除所有buffer页
 keymap.set("n", "<leader>c", ":bufdo bd<CR>")
 
 -- ---------- 插件 ---------- ---

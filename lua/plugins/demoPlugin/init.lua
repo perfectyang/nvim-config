@@ -1,4 +1,4 @@
-print("欢迎-------->>>>>>>>>>> 杨帅哥,快乐打码!!!!!!!!!!!")
+-- print("欢迎-------->>>>>>>>>>> 杨帅哥,快乐打码!!!!!!!!!!!")
 
 local api = vim.api
 local buf, win
@@ -105,7 +105,7 @@ local function create_side_window()
 	vim.api.nvim_command("wincmd " .. move_to)
 	vim.ape.nvim_win_set_width(win, M.options.width)
 	-- api.nvim_command("")
-	vim.api.nvim_command("normal! gd")
+	-- vim.api.nvim_command("normal! gd")
 
 	-- local buf = vim.api.nvim_create_buf(false, true)
 	-- vim.api.nvim_win_set_buf(win, buf)
@@ -118,4 +118,4 @@ local function create_side_window()
 	return win, buf
 end
 
--- vim.keymap.set("n", "<leader>l", create_side_window)
+vim.keymap.set("n", "<leader>t", create_side_window)

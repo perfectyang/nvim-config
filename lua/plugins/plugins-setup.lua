@@ -141,6 +141,19 @@ return require("packer").startup(function(use)
 	use({ "gennaro-tedesco/nvim-peekup" })
 
 	-- use({
+	-- 	"0x00-ketsu/autosave.nvim",
+	-- })
+	use({
+		"okuuva/auto-save.nvim",
+		config = function()
+			require("auto-save").setup({
+				-- your config goes here
+				-- or just leave it empty :)
+			})
+		end,
+	})
+
+	-- use({
 	-- 	"VonHeikemen/fine-cmdline.nvim",
 	-- 	requires = {
 	-- 		{ "MunifTanjim/nui.nvim" },
