@@ -179,7 +179,7 @@ G.blamer_relative_time = 1
 local builtin = require("telescope.builtin")
 keymap.set("n", "<leader>ff", builtin.find_files, {}) -- find files within current working directory, respects .gitignore
 keymap.set("n", "<leader>fc", builtin.live_grep, {}) -- 环境里要安装ripgrep find string in current working directory as you type
--- keymap.set("n", "<leader>fb", builtin.buffers, {}) -- list open buffers in current neovim instance
+keymap.set("n", "<leader>fb", builtin.buffers, {}) -- list open buffers in current neovim instance
 keymap.set("n", "<leader>fs", builtin.grep_string, {}) -- find string under cursor in current working directory
 keymap.set("n", "<leader>fh", builtin.help_tags, {}) -- list available help tags
 
@@ -187,7 +187,7 @@ keymap.set("n", "<leader>fh", builtin.help_tags, {}) -- list available help tags
 keymap.set("n", "<leader>mm", require("harpoon.mark").add_file)
 keymap.set("n", "<leader>mn", require("harpoon.ui").nav_next)
 keymap.set("n", "<leader>mb", require("harpoon.ui").nav_prev)
-keymap.set("n", "<leader>fb", ":Telescope harpoon marks<CR>") -- list current changes per file with diff preview ["gs" for git status]
+keymap.set("n", "<leader>fm", ":Telescope harpoon marks<CR>") -- list current changes per file with diff preview ["gs" for git status]
 keymap.set("n", "<leader>me", ":lua require('harpoon.ui').toggle_quick_menu()<CR>") -- list current changes per file with diff preview ["gs" for git status]
 
 -- inc-rename

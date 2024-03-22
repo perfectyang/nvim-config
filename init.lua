@@ -1,12 +1,12 @@
 require("plugins/plugins-setup")
-
 require("core.options")
+
 require("core.keymaps")
 
 -- 插件
 require("plugins/lualine")
-require("plugins/treesitter")
-
+-- require("plugins/treesitter")
+--
 require("plugins/nvim-tree")
 require("plugins/icon")
 require("plugins/surround")
@@ -24,10 +24,11 @@ require("plugins/code-runner")
 require("plugins/goto-preview")
 require("plugins/indent-blankline")
 
--- require("plugins/lazygit")
 require("plugins/pluginconfigs")
 require("plugins/demoPlugin")
 
 require("leap").add_default_mappings()
 
 require("user")
+
+--  this is test

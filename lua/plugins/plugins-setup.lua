@@ -61,6 +61,9 @@ return require("packer").startup(function(use)
 
 	use("akinsho/bufferline.nvim") -- buffer分割线
 	use("lewis6991/gitsigns.nvim") -- 左则git提示
+
+	use("APZelos/blamer.nvim") -- git 操作记录
+
 	use({
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.4", -- 文件检索
@@ -84,12 +87,7 @@ return require("packer").startup(function(use)
 
 	use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
 	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
-	-- use({
-	-- 	"smjonas/inc-rename.nvim",
-	-- 	config = function()
-	-- 		require("inc_rename").setup()
-	-- 	end,
-	-- })
+
 	-- formatting & linting
 	use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
 	use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
@@ -98,33 +96,35 @@ return require("packer").startup(function(use)
 
 	use("tomasiser/vim-code-dark")
 
+	-- 主题色
 	use("Mofiqul/vscode.nvim")
-	-- code runner
-	use({ "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" })
+	use("shaunsingh/solarized.nvim")
+	use("EdenEast/nightfox.nvim")
+	use("marko-cerovac/material.nvim")
+	use("bluz71/vim-moonfly-colors")
+	use("Mofiqul/dracula.nvim")
 
-	use("rafi/awesome-vim-colorschemes")
-	use("APZelos/blamer.nvim")
+	-- code runner
+	-- use({ "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" })
+
 	use("mg979/vim-visual-multi")
 	use({
 		"rmagatti/goto-preview",
-		config = function()
-			require("goto-preview").setup({})
-		end,
 	})
 
 	use("lukas-reineke/indent-blankline.nvim")
-	use({
-		"kdheepak/lazygit.nvim",
-		-- optional for floating window border decoration
-		requires = {
-			"nvim-lua/plenary.nvim",
-		},
-	})
+	-- use({
+	-- 	"kdheepak/lazygit.nvim",
+	-- 	-- optional for floating window border decoration
+	-- 	requires = {
+	-- 		"nvim-lua/plenary.nvim",
+	-- 	},
+	-- })
 	-- Merge Tool
-	use("sindrets/diffview.nvim")
+	-- use("sindrets/diffview.nvim")
 
 	-- which-key
-	use({ "folke/which-key.nvim", tag = "v1.5.1" })
+	-- use({ "folke/which-key.nvim", tag = "v1.5.1" })
 
 	-- flask
 	use({ "folke/flash.nvim", tag = "v1.18.2" })
@@ -136,37 +136,16 @@ return require("packer").startup(function(use)
 
 	use({ "nvim-pack/nvim-spectre" })
 
-	-- use({ "nvim-telescope/telescope-file-browser.nvim" })
-
 	use({ "gennaro-tedesco/nvim-peekup" })
 
-	-- use({
-	-- 	"0x00-ketsu/autosave.nvim",
-	-- })
 	use({
 		"okuuva/auto-save.nvim",
-		config = function()
-			require("auto-save").setup({
-				-- your config goes here
-				-- or just leave it empty :)
-			})
-		end,
 	})
+	use("ofirgall/ofirkai.nvim")
+	use({ "sainnhe/edge" })
+	use("Tsuzat/NeoSolarized.nvim")
 
-	-- use({
-	-- 	"VonHeikemen/fine-cmdline.nvim",
-	-- 	requires = {
-	-- 		{ "MunifTanjim/nui.nvim" },
-	-- 	},
-	-- })
-
-	-- use({
-	-- 	"ray-x/navigator.lua",
-	-- 	requires = {
-	-- 		{ "ray-x/guihua.lua", run = "cd lua/fzy && make" },
-	-- 		{ "neovim/nvim-lspconfig" },
-	-- 	},
-	-- })
+	use("NvChad/nvim-colorizer.lua")
 
 	if packer_bootstrap then
 		require("packer").sync()

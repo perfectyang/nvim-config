@@ -1,26 +1,21 @@
+require("vscode").setup({
+	color_overrides = {
+
+		vscNone = "NONE",
+		-- vscFront = "#D4D4D4",
+		vscFront = "#D4D4D4", -- 文件字体颜色
+		vscBack = "#070707", -- 背景色
+		vscLeftDark = "#070707", -- 左侧背景色
+		vscCursorDarkDark = "#070707", -- 在当前行背景色
+		vscSelection = "#1c5894", --- 选中文字颜色
+		vscSearch = "#b24a07", -- 搜索文案
+		vscTabCurrent = "#070707",
+		vscBlue = "#5383c3",
+		vscLineNumber = "#5A5A5A",
+	},
+})
+require("vscode").load()
 vim.cmd([[colorscheme vscode]])
 -- vim.cmd([[colorscheme tokyonight]])
 -- vim.cmd([[colorscheme solarized-osaka]])
--- local c = require("vscode.colors").get_colors()
--- require("vscode").setup({
--- 	-- Enable transparent background
--- 	transparent = true,
--- 	--
--- 	-- -- Enable italic comment
--- 	italic_comments = true,
--- 	--
--- 	-- -- Disable nvim-tree background color
--- 	disable_nvimtree_bg = false,
--- 	--
--- 	-- -- Override colors (see ./lua/vscode/colors.lua)
--- 	-- color_overrides = {
--- 	-- 	vscLineNumber = "#FFFFFF",
--- 	-- },
--- 	--
--- 	-- -- Override highlight groups (see ./lua/vscode/theme.lua)
--- 	group_overrides = {
--- 		-- this supports the same val table as vim.api.nvim_set_hl
--- 		-- use colors from this colorscheme by requiring vscode.colors!
--- 		Cursor = { fg = "#ff6161", bg = "green", bold = true },
--- 	},
--- })
+-- vim.cmd([[colorscheme lunaperche]])

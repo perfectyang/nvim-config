@@ -31,24 +31,3 @@ require("nvim-treesitter.configs").setup({
 		max_file_lines = nil,
 	},
 })
-require("ts_context_commentstring").setup({
-	typescript = { __default = "// %s", __multiline = "/* %s */" },
-	__default = "/* %s */",
-	jsx_element = "{/* %s */}",
-	jsx_fragment = "{/* %s */}",
-	jsx_attribute = "// %s",
-	comment = "/* %s */",
-})
-
--- ts_context_commentstring = {
--- 	enable = true,
--- 	config = {
--- 		typescript = { __default = "// %s", __multiline = "/* %s */" },
--- 		-- __default = '// %s',
--- 		__default = "/* %s */",
--- 		jsx_element = "{/* %s */}",
--- 		jsx_fragment = "{/* %s */}",
--- 		jsx_attribute = "// %s",
--- 		comment = "/* %s */",
--- 	},
--- },
