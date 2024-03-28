@@ -6,7 +6,7 @@ require("core.keymaps")
 -- 插件
 require("plugins/lualine")
 -- require("plugins/treesitter")
---
+-- 测试
 require("plugins/nvim-tree")
 require("plugins/icon")
 require("plugins/surround")
