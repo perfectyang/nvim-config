@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/perfectyang/.cache/nvim/packer_hererocks/2.1.1703358377/share/lua/5.1/?.lua;/Users/perfectyang/.cache/nvim/packer_hererocks/2.1.1703358377/share/lua/5.1/?/init.lua;/Users/perfectyang/.cache/nvim/packer_hererocks/2.1.1703358377/lib/luarocks/rocks-5.1/?.lua;/Users/perfectyang/.cache/nvim/packer_hererocks/2.1.1703358377/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/perfectyang/.cache/nvim/packer_hererocks/2.1.1703358377/lib/lua/5.1/?.so"
+local package_path_str = "/Users/perfectyang/.cache/nvim/packer_hererocks/2.1.1713773202/share/lua/5.1/?.lua;/Users/perfectyang/.cache/nvim/packer_hererocks/2.1.1713773202/share/lua/5.1/?/init.lua;/Users/perfectyang/.cache/nvim/packer_hererocks/2.1.1713773202/lib/luarocks/rocks-5.1/?.lua;/Users/perfectyang/.cache/nvim/packer_hererocks/2.1.1713773202/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/perfectyang/.cache/nvim/packer_hererocks/2.1.1713773202/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -84,10 +84,20 @@ _G.packer_plugins = {
     path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["NeoSolarized.nvim"] = {
+    loaded = true,
+    path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/NeoSolarized.nvim",
+    url = "https://github.com/Tsuzat/NeoSolarized.nvim"
+  },
   ["auto-save.nvim"] = {
     loaded = true,
     path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/auto-save.nvim",
     url = "https://github.com/okuuva/auto-save.nvim"
+  },
+  ["blamer.nvim"] = {
+    loaded = true,
+    path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/blamer.nvim",
+    url = "https://github.com/APZelos/blamer.nvim"
   },
   ["bufferline.nvim"] = {
     loaded = true,
@@ -118,6 +128,21 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/coc.nvim",
     url = "https://github.com/neoclide/coc.nvim"
+  },
+  ["codeium.vim"] = {
+    loaded = true,
+    path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/codeium.vim",
+    url = "https://github.com/Exafunction/codeium.vim"
+  },
+  ["dracula.nvim"] = {
+    loaded = true,
+    path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/dracula.nvim",
+    url = "https://github.com/Mofiqul/dracula.nvim"
+  },
+  edge = {
+    loaded = true,
+    path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/edge",
+    url = "https://github.com/sainnhe/edge"
   },
   ["flash.nvim"] = {
     loaded = true,
@@ -179,6 +204,16 @@ _G.packer_plugins = {
     path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["material.nvim"] = {
+    loaded = true,
+    path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/material.nvim",
+    url = "https://github.com/marko-cerovac/material.nvim"
+  },
+  ["nightfox.nvim"] = {
+    loaded = true,
+    path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
+    url = "https://github.com/EdenEast/nightfox.nvim"
+  },
   ["null-ls.nvim"] = {
     loaded = true,
     path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
@@ -194,6 +229,11 @@ _G.packer_plugins = {
     path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
+  ["nvim-colorizer.lua"] = {
+    loaded = true,
+    path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
+    url = "https://github.com/NvChad/nvim-colorizer.lua"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -203,11 +243,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/nvim-peekup",
     url = "https://github.com/gennaro-tedesco/nvim-peekup"
-  },
-  ["nvim-spectre"] = {
-    loaded = true,
-    path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/nvim-spectre",
-    url = "https://github.com/nvim-pack/nvim-spectre"
   },
   ["nvim-surround"] = {
     loaded = true,
@@ -239,6 +274,11 @@ _G.packer_plugins = {
     path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
+  ["ofirkai.nvim"] = {
+    loaded = true,
+    path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/ofirkai.nvim",
+    url = "https://github.com/ofirgall/ofirkai.nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -253,6 +293,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/solarized-osaka.nvim",
     url = "https://github.com/craftzdog/solarized-osaka.nvim"
+  },
+  ["solarized.nvim"] = {
+    loaded = true,
+    path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/solarized.nvim",
+    url = "https://github.com/shaunsingh/solarized.nvim"
   },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
@@ -293,6 +338,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/vim-floaterm",
     url = "https://github.com/voldikss/vim-floaterm"
+  },
+  ["vim-moonfly-colors"] = {
+    loaded = true,
+    path = "/Users/perfectyang/.local/share/nvim/site/pack/packer/start/vim-moonfly-colors",
+    url = "https://github.com/bluz71/vim-moonfly-colors"
   },
   ["vim-tmux-navigator"] = {
     loaded = true,

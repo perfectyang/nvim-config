@@ -5,6 +5,7 @@ require("core.keymaps")
 
 -- 插件
 require("plugins/lualine")
+
 -- require("plugins/treesitter")
 -- 测试
 require("plugins/nvim-tree")
@@ -30,5 +31,3 @@ require("plugins/demoPlugin")
 require("leap").add_default_mappings()
 
 require("user")
-
---  this is test

@@ -3,6 +3,11 @@ local keymap = vim.keymap
 local G = vim.g
 vim.g.skip_ts_context_commentstring_module = true
 
+-- vim.cmd.packadd("snipe.nvim")
+-- local snipe = require("snipe")
+-- snipe.setup()
+-- vim.keymap.set("n", "<leader>gt", snipe.open_buffer_menu)
+
 -- ---------- 插入模式 ---------- ---
 keymap.set("i", "jj", "<ESC>")
 
@@ -114,10 +119,10 @@ keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 
 -- 浮动窗口
 
-G.floaterm_keymap_kill = "<F7>"
-G.floaterm_keymap_new = "<F8>"
-G.floaterm_keymap_toggle = "<F9>"
-G.floaterm_keymap_next = "<F10>"
+G.floaterm_keymap_kill = "<F5>"
+G.floaterm_keymap_new = "<F6>"
+G.floaterm_keymap_toggle = "<F7>"
+G.floaterm_keymap_next = "<F8>"
 G.floaterm_position = "bottomRight"
 G.floaterm_title = "Perfectyang-$1/$2"
 G.floaterm_width = 0.8
@@ -190,6 +195,11 @@ keymap.set("n", "<leader>mb", require("harpoon.ui").nav_prev)
 keymap.set("n", "<leader>fm", ":Telescope harpoon marks<CR>") -- list current changes per file with diff preview ["gs" for git status]
 keymap.set("n", "<leader>me", ":lua require('harpoon.ui').toggle_quick_menu()<CR>") -- list current changes per file with diff preview ["gs" for git status]
 
+-- 智能提示
+-- keymap.set("i", "<C-g>", function()
+-- 	return vim.fn["codeium#Accept"]()
+-- end, { expr = true, silent = true })
+
 -- inc-rename
 -- vim.keymap.set("n", "<leader>rn", function()
 -- 	return ":IncRename " .. vim.fn.expand("<cword>")
@@ -212,6 +222,9 @@ vim.keymap.set("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search(
 vim.keymap.set("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
 	desc = "Search on current file",
 })
+
+vim.keymap.set("i", ";n", "<Cmd>call codeium#CycleCompletions(1)<CR>", {})
+vim.keymap.set("i", ";b", "<Cmd>call codeium#CycleCompletions(-1)<CR>", {})
 
 -- keymap.set("n", ":", "<cmd>FineCmdline<CR>")
 --

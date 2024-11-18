@@ -134,7 +134,7 @@ return require("packer").startup(function(use)
 
 	use({ "craftzdog/solarized-osaka.nvim" })
 
-	use({ "nvim-pack/nvim-spectre" })
+	-- use({ "nvim-pack/nvim-spectre" })
 
 	use({ "gennaro-tedesco/nvim-peekup" })
 
@@ -146,6 +146,13 @@ return require("packer").startup(function(use)
 	use("Tsuzat/NeoSolarized.nvim")
 
 	use("NvChad/nvim-colorizer.lua")
+	use("Exafunction/codeium.vim")
+	use("ethanholz/nvim-lastplace")
+
+	use({
+		"SmiteshP/nvim-navic",
+		requires = "neovim/nvim-lspconfig",
+	})
 
 	if packer_bootstrap then
 		require("packer").sync()

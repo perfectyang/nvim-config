@@ -38,3 +38,4 @@ vim.api.nvim_create_user_command("RotateWindows", function()
 		vim.api.nvim_err_writeln("You can only swap 2 open windows. Found " .. num_eligible_windows .. ".")
 	end
 end, {})
+

@@ -25,6 +25,40 @@ end
 telescope.setup({
 	-- configure custom mappings
 	defaults = {
+		layout_strategy = "horizontal",
+		layout_config = {
+			horizontal = {
+				height = 0.9,
+				preview_cutoff = 120,
+				prompt_position = "bottom",
+				width = 0.9,
+			},
+			bottom_pane = {
+				height = 25,
+				preview_cutoff = 120,
+				prompt_position = "bottom",
+			},
+
+			cursor = {
+				height = 0.9,
+				preview_cutoff = 50,
+				width = 0.9,
+			},
+			center = {
+				height = 0.4,
+				preview_cutoff = 40,
+				prompt_position = "top",
+				width = 0.5,
+			},
+			vertical = {
+				height = 0.9,
+				preview_cutoff = 40,
+				prompt_position = "bottom",
+				width = 0.8,
+			},
+			-- width = { padding = 0 },
+			-- height = { padding = 0 },
+		},
 		mappings = {
 			i = {
 				["<C-k>"] = actions.move_selection_previous, -- move to prev result
