@@ -86,7 +86,7 @@ vim.opt.signcolumn = "yes"
 -- keyset("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts)
 -- keyset("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
 
--- keymap.set("n", "gd", "<Plug>(coc-definition)", {silent = true})
+keymap.set("n", "gd", "<Plug>(coc-definition)", { silent = false })
 -- keymap.set("n", "gy", "<Plug>(coc-type-definition)", {silent = true})
 -- keymap.set("n", "gi", "<Plug>(coc-implementation)", {silent = true})
 -- keymap.set("n", "gr", "<Plug>(coc-references)", {silent = true})
@@ -225,6 +225,10 @@ vim.keymap.set("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search(
 
 vim.keymap.set("i", ";n", "<Cmd>call codeium#CycleCompletions(1)<CR>", {})
 vim.keymap.set("i", ";b", "<Cmd>call codeium#CycleCompletions(-1)<CR>", {})
+
+-- 	keymap.set("n", "<leader>rf", ":TypescriptRenameFile<CR>") -- rename file and update imports
+keymap.set("n", "<leader>fa", ":TSToolsFixAll<CR>") -- organize imports (not in youtube nvim video)
+keymap.set("n", "<leader>ru", ":TSToolsRemoveUnused<CR>") -- remove unused variables (not in youtube nvim video)
 
 -- keymap.set("n", ":", "<cmd>FineCmdline<CR>")
 --

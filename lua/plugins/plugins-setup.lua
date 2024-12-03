@@ -154,6 +154,11 @@ return require("packer").startup(function(use)
 		requires = "neovim/nvim-lspconfig",
 	})
 
+	use({
+		"pmizio/typescript-tools.nvim",
+		requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+	})
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
