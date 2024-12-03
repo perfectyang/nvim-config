@@ -1,4 +1,5 @@
 require("plugins/plugins-setup")
+
 require("core.options")
 
 require("core.keymaps")
@@ -6,7 +7,7 @@ require("core.keymaps")
 -- 插件
 require("plugins/lualine")
 
--- require("plugins/treesitter")
+require("plugins/treesitter")
 -- 测试
 require("plugins/nvim-tree")
 require("plugins/icon")
@@ -27,7 +28,6 @@ require("plugins/indent-blankline")
 
 require("plugins/pluginconfigs")
 require("plugins/demoPlugin")
+require("plugins/hlight")
 
 require("leap").add_default_mappings()
-
-require("user")

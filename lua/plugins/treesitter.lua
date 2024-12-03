@@ -21,13 +21,13 @@ require("nvim-treesitter.configs").setup({
 		"html",
 	}, -- one of "all" or a list of languages
 
-	highlight = { enable = false },
-	indent = { enable = true },
+	-- highlight = { enable = false },
+	-- indent = { enable = true },
 
 	-- 不同括号颜色区分
-	rainbow = {
-		enable = true,
-		extended_mode = true,
-		max_file_lines = nil,
-	},
+	-- rainbow = {
+	-- 	enable = true,
+	-- 	extended_mode = true,
+	-- 	max_file_lines = nil,
+	-- },
 })
