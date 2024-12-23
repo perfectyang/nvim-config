@@ -1,11 +1,8 @@
 local M = {}
 
--- 存储分支和缓冲区的映射
 M.branch_buffers = {}
--- 存储浮动窗口 ID
 M.float_win = nil
 
--- 创建或获取与分支关联的缓冲区
 function M.get_branch_buffer()
 	local current_branch = vim.fn.system("git rev-parse --abbrev-ref HEAD"):gsub("\n", "")
 
@@ -33,17 +30,14 @@ function M.get_branch_buffer()
 	end
 end
 
--- 保存缓冲区内容
 function M.save_buffer_content(bufnr, branch)
 	local content = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
 	local file_path = vim.fn.expand("~/.vim/git_notes/" .. branch .. ".txt")
 	vim.fn.mkdir(vim.fn.fnamemodify(file_path, ":h"), "p")
 	vim.fn.writefile(content, file_path)
 	vim.api.nvim_buf_set_option(bufnr, "modified", false)
-	print("Saved notes for branch: " .. branch)
 end
 
--- 加载缓冲区内容
 function M.load_buffer_content(bufnr, branch)
 	local file_path = vim.fn.expand("~/.vim/git_notes/" .. branch .. ".txt")
 	if vim.fn.filereadable(file_path) == 1 then
@@ -53,7 +47,6 @@ function M.load_buffer_content(bufnr, branch)
 	end
 end
 
--- 创建浮动窗口
 function M.create_float_win(bufnr)
 	local width = math.floor(vim.o.columns * 0.8)
 	local height = math.floor(vim.o.lines * 0.8)
@@ -69,11 +62,9 @@ function M.create_float_win(bufnr)
 
 	M.float_win = vim.api.nvim_open_win(bufnr, true, win_opts)
 
-	-- 设置窗口选项
 	vim.api.nvim_win_set_option(M.float_win, "winblend", 10)
 	vim.api.nvim_win_set_option(M.float_win, "cursorline", true)
 
-	-- 添加关闭浮动窗口的键映射
 	vim.api.nvim_buf_set_keymap(
 		bufnr,
 		"n",
@@ -82,7 +73,6 @@ function M.create_float_win(bufnr)
 		{ noremap = true, silent = true }
 	)
 
-	-- 设置自动命令以在窗口关闭时保存内容并重置 M.float_win
 	vim.api.nvim_create_autocmd("WinClosed", {
 		pattern = tostring(M.float_win),
 		callback = function()
@@ -93,7 +83,6 @@ function M.create_float_win(bufnr)
 	})
 end
 
--- 关闭浮动窗口
 function M.close_float_win()
 	if M.float_win and vim.api.nvim_win_is_valid(M.float_win) then
 		local bufnr = vim.api.nvim_win_get_buf(M.float_win)
@@ -104,7 +93,6 @@ function M.close_float_win()
 	end
 end
 
--- 切换到与当前 Git 分支关联的浮动窗口
 function M.toggle_branch_notes()
 	if M.float_win and vim.api.nvim_win_is_valid(M.float_win) then
 		M.close_float_win()
@@ -114,7 +102,6 @@ function M.toggle_branch_notes()
 	end
 end
 
--- 设置自动命令以在 Git 分支变化时更新缓冲区
 vim.api.nvim_create_autocmd("User", {
 	pattern = "GitBranchChanged",
 	callback = function()
