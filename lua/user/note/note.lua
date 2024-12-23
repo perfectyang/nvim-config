@@ -39,6 +39,7 @@ function M.save_buffer_content(bufnr, branch)
 	local file_path = vim.fn.expand("~/.vim/git_notes/" .. branch .. ".txt")
 	vim.fn.mkdir(vim.fn.fnamemodify(file_path, ":h"), "p")
 	vim.fn.writefile(content, file_path)
+	vim.api.nvim_buf_set_option(bufnr, "modified", false)
 	print("Saved notes for branch: " .. branch)
 end
 
@@ -48,6 +49,7 @@ function M.load_buffer_content(bufnr, branch)
 	if vim.fn.filereadable(file_path) == 1 then
 		local content = vim.fn.readfile(file_path)
 		vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, content)
+		vim.api.nvim_buf_set_option(bufnr, "modified", false)
 	end
 end
 
@@ -76,14 +78,16 @@ function M.create_float_win(bufnr)
 		bufnr,
 		"n",
 		"q",
-		':lua require("git_branch_buffers").close_float_win()<CR>',
+		':lua require("user.note.note").close_float_win()<CR>',
 		{ noremap = true, silent = true }
 	)
 
-	-- 设置自动命令以在窗口关闭时重置 M.float_win
+	-- 设置自动命令以在窗口关闭时保存内容并重置 M.float_win
 	vim.api.nvim_create_autocmd("WinClosed", {
 		pattern = tostring(M.float_win),
 		callback = function()
+			local current_branch = vim.fn.system("git rev-parse --abbrev-ref HEAD"):gsub("\n", "")
+			M.save_buffer_content(bufnr, current_branch)
 			M.float_win = nil
 		end,
 	})
@@ -92,6 +96,9 @@ end
 -- 关闭浮动窗口
 function M.close_float_win()
 	if M.float_win and vim.api.nvim_win_is_valid(M.float_win) then
+		local bufnr = vim.api.nvim_win_get_buf(M.float_win)
+		local current_branch = vim.fn.system("git rev-parse --abbrev-ref HEAD"):gsub("\n", "")
+		M.save_buffer_content(bufnr, current_branch)
 		vim.api.nvim_win_close(M.float_win, true)
 		M.float_win = nil
 	end
@@ -112,8 +119,12 @@ vim.api.nvim_create_autocmd("User", {
 	pattern = "GitBranchChanged",
 	callback = function()
 		if M.float_win and vim.api.nvim_win_is_valid(M.float_win) then
-			local bufnr = M.get_branch_buffer()
-			vim.api.nvim_win_set_buf(M.float_win, bufnr)
+			local old_bufnr = vim.api.nvim_win_get_buf(M.float_win)
+			local old_branch = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(old_bufnr), ":t:r")
+			M.save_buffer_content(old_bufnr, old_branch)
+
+			local new_bufnr = M.get_branch_buffer()
+			vim.api.nvim_win_set_buf(M.float_win, new_bufnr)
 		end
 	end,
 })
