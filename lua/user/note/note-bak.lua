@@ -108,7 +108,34 @@ function M.close_float_win()
 	end
 end
 
+function M.cleanup_deleted_branches()
+	local current_project = M.get_project_root()
+	local current_branches = {}
+
+	local branches = vim.fn.systemlist("git branch --format='%(refname:short)'")
+	for _, branch in ipairs(branches) do
+		current_branches[current_project .. ":" .. branch] = true
+	end
+
+	for project_branch_id, bufnr in pairs(M.project_branch_buffers) do
+		local project, branch = project_branch_id:match("(.+):(.+)")
+		if project == current_project and not current_branches[project_branch_id] then
+			if vim.api.nvim_buf_is_valid(bufnr) then
+				vim.api.nvim_buf_delete(bufnr, { force = true })
+			end
+
+			local file_path = vim.fn.expand("~/.vim/git_notes/" .. vim.fn.sha256(project_branch_id) .. ".txt")
+			if vim.fn.filereadable(file_path) == 1 then
+				vim.fn.delete(file_path)
+			end
+
+			M.project_branch_buffers[project_branch_id] = nil
+		end
+	end
+end
+
 function M.toggle_project_branch_notes()
+	M.cleanup_deleted_branches()
 	if M.float_win and vim.api.nvim_win_is_valid(M.float_win) then
 		M.close_float_win()
 	else
@@ -120,6 +147,7 @@ end
 vim.api.nvim_create_autocmd("User", {
 	pattern = "GitBranchChanged",
 	callback = function()
+		M.cleanup_deleted_branches()
 		if M.float_win and vim.api.nvim_win_is_valid(M.float_win) then
 			local old_bufnr = vim.api.nvim_win_get_buf(M.float_win)
 			local old_project_branch_id = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(old_bufnr), ":t:r")
@@ -130,5 +158,3 @@ vim.api.nvim_create_autocmd("User", {
 		end
 	end,
 })
-
-return M

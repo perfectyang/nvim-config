@@ -2,7 +2,7 @@ local git_buffers = require("user.note.note")
 
 -- 创建一个命令来切换 Git 分支笔记的浮动窗口
 vim.api.nvim_create_user_command("GitNotes", function()
-	git_buffers.toggle_branch_notes()
+	git_buffers.toggle_project_branch_notes()
 end, {})
 
 vim.api.nvim_create_autocmd("BufEnter", {
