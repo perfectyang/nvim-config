@@ -46,9 +46,10 @@ local options = {
 	spell = false, -- add spell support
 	spelllang = { "en_us" }, -- support which languages?
 	diffopt = "vertical,filler,internal,context:4", -- vertical diff split view
+	smoothscroll = true,
+	-- formatlistpat = [[^\s*[0-9\-\+\*]\+[\.\)]*\s\+]],
 	-- cscopequickfix = "s-,c-,d-,i-,t-,e-", -- cscope output to quickfix window
 }
-
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end

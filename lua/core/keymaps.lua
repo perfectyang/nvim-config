@@ -21,17 +21,21 @@ keymap.set("i", "jj", "<ESC>")
 -- keymap.set("n", "<leader>q", ":q!<CR>") -- 垂直新增窗口
 keymap.set("n", "<leader>;", ":w!<CR>")
 keymap.set("n", "J", "5j")
-keymap.set("n", "K", "5k")
 keymap.set("v", "J", "5j")
+keymap.set("n", "K", "5k")
 keymap.set("v", "K", "5k")
+keymap.set("n", "H", "^")
 keymap.set("v", "<", "<gv")
 keymap.set("v", ">", ">gv")
-keymap.set("n", "H", "^")
-keymap.set("n", "L", "$")
+-- keymap.set("n", "j", "gj")
+-- keymap.set("n", "k", "gk")
 
+keymap.set("n", "L", "$")
 keymap.set("n", "daf", "va{Vd")
 keymap.set("n", "yaf", "va{Vy")
 keymap.set("n", "mm", "mM")
+
+keymap.set("n", "p", "P")
 keymap.set("n", "mn", "mN")
 keymap.set("n", "mb", "mB")
 keymap.set("n", "ma", "mA")
@@ -43,6 +47,16 @@ keymap.set("n", "cL", "c$")
 keymap.set("n", "cH", "c0")
 keymap.set("n", "dL", "d$")
 keymap.set("n", "yp", "Yp")
+--
+
+-- Move Lines
+
+keymap.set("n", "<A-j>", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "Move Down" })
+keymap.set("n", "<A-k>", "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "Move Up" })
+keymap.set("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
+keymap.set("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
+keymap.set("v", "<A-j>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "Move Down" })
+keymap.set("v", "<A-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Up" })
 
 -- keymap.set("n", "<Space>", "zc")
 
@@ -210,18 +224,18 @@ keymap.set("n", "<leader>me", ":lua require('harpoon.ui').toggle_quick_menu()<CR
 -- vim.keymap.set("n", "<leader>S", '<cmd>lua require("spectre").toggle()<CR>', {
 -- 	desc = "Toggle Spectre",
 -- })
-vim.keymap.set("n", "<leader>se", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
-	desc = "Search current word",
-})
-vim.keymap.set("v", "<leader>se", '<esc><cmd>lua require("spectre").open_visual()<CR>', {
-	desc = "Search current word",
-})
-vim.keymap.set("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
-	desc = "Search on current file",
-})
-vim.keymap.set("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
-	desc = "Search on current file",
-})
+-- vim.keymap.set("n", "<leader>se", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
+-- 	desc = "Search current word",
+-- })
+-- vim.keymap.set("v", "<leader>se", '<esc><cmd>lua require("spectre").open_visual()<CR>', {
+-- 	desc = "Search current word",
+-- })
+-- vim.keymap.set("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
+-- 	desc = "Search on current file",
+-- })
+-- vim.keymap.set("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
+-- 	desc = "Search on current file",
+-- })
 
 vim.keymap.set("i", ";n", "<Cmd>call codeium#CycleCompletions(1)<CR>", {})
 vim.keymap.set("i", ";b", "<Cmd>call codeium#CycleCompletions(-1)<CR>", {})

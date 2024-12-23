@@ -3,6 +3,11 @@ require("plugins/plugins-setup")
 require("core.options")
 
 require("core.keymaps")
+require("user")
+require("user.floaterminal")
+-- require("user.multiWin")
+require("user.floaterminal")
+require("user.note.init")
 
 -- 插件
 require("plugins/lualine")

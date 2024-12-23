@@ -3,39 +3,36 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	pattern = "*",
 	desc = "Highlight selection on yank",
 	callback = function()
-		vim.highlight.on_yank({ timeout = 100, visual = true })
+		vim.highlight.on_yank({})
 	end,
 })
 
-vim.api.nvim_create_user_command("RotateWindows", function()
-	local ignored_filetypes = { "neo-tree", "fidget", "Outline", "toggleterm", "qf", "notify" }
-	local window_numbers = vim.api.nvim_tabpage_list_wins(0)
-	local windows_to_rotate = {}
-
-	for _, window_number in ipairs(window_numbers) do
-		local buffer_number = vim.api.nvim_win_get_buf(window_number)
-		local filetype = vim.bo[buffer_number].filetype
-
-		if not vim.tbl_contains(ignored_filetypes, filetype) then
-			table.insert(windows_to_rotate, { window_number = window_number, buffer_number = buffer_number })
-		end
-	end
-
-	local num_eligible_windows = vim.tbl_count(windows_to_rotate)
-
-	if num_eligible_windows == 0 then
-		return
-	elseif num_eligible_windows == 1 then
-		vim.api.nvim_err_writeln("There is no other window to rotate with.")
-		return
-	elseif num_eligible_windows == 2 then
-		local firstWindow = windows_to_rotate[1]
-		local secondWindow = windows_to_rotate[2]
-
-		vim.api.nvim_win_set_buf(firstWindow.window_number, secondWindow.buffer_number)
-		vim.api.nvim_win_set_buf(secondWindow.window_number, firstWindow.buffer_number)
-	else
-		vim.api.nvim_err_writeln("You can only swap 2 open windows. Found " .. num_eligible_windows .. ".")
-	end
-end, {})
-
+-- -- 定义字母到短语的映射
+-- local phrases = {
+-- 	i = "const name = 'perfectyang'",
+-- 	v = "Vim is awesome!",
+-- 	n = "Neovim rocks!",
+-- 	l = "Let's learn Lua!",
+-- }
+--
+-- -- 输出短语的函数
+-- local function output_phrase(letter)
+-- 	local phrase = phrases[letter]
+-- 	if phrase then
+-- 		vim.api.nvim_put({ phrase }, "c", true, true)
+-- 	else
+-- 		print("No phrase defined for letter: " .. letter)
+-- 	end
+-- end
+--
+-- -- 设置命令的函数
+-- vim.api.nvim_create_user_command("QuickPhrase", function(opts)
+-- 	output_phrase(opts.args)
+-- end, { nargs = 1 })
+--
+-- -- 为每个定义的字母创建键盘映射
+-- for letter, _ in pairs(phrases) do
+-- 	vim.keymap.set("n", "<leader>" .. letter, function()
+-- 		output_phrase(letter)
+-- 	end, { desc = "Output quick phrase for " .. letter })
+-- end
