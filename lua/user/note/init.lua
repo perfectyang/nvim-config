@@ -16,4 +16,4 @@ vim.api.nvim_create_autocmd("BufEnter", {
 })
 
 -- 设置一个快捷键
-vim.api.nvim_set_keymap("n", "<leader>gn", ":GitNotes<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<F4>", ":GitNotes<CR>", { noremap = true, silent = true })

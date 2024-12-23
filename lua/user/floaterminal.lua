@@ -112,6 +112,6 @@ end
 -- Create a floating window with default dimensions
 -- vim.keymap.set({ "n", "t", "i" }, "<leader>gn", toggle_terminal)
 vim.keymap.set({ "n", "t", "i" }, "<leader>cw", close_all_windows)
-vim.keymap.set({ "n", "t", "i" }, "<F4>", toggle_window)
+-- vim.keymap.set({ "n", "t", "i" }, "<F4>", toggle_window)
 vim.keymap.set({ "n", "t", "i" }, "<leader>to", toggle_terminal)
 vim.keymap.set({ "n", "t", "i" }, "<leader>wn", next_window)
