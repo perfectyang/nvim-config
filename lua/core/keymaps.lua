@@ -11,6 +11,26 @@ vim.g.skip_ts_context_commentstring_module = true
 -- ---------- 插入模式 ---------- ---
 keymap.set("i", "jj", "<ESC>")
 
+keymap.set("n", "j", function(...)
+	local count = vim.v.count
+
+	if count == 0 then
+		return "gj"
+	else
+		return "j"
+	end
+end, { expr = true })
+
+keymap.set("n", "k", function(...)
+	local count = vim.v.count
+
+	if count == 0 then
+		return "gk"
+	else
+		return "k"
+	end
+end, { expr = true })
+
 -- ---------- 视觉模式 ---------- ---
 -- 单行或多行移动
 -- keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -27,15 +47,10 @@ keymap.set("v", "K", "5k")
 keymap.set("n", "H", "^")
 keymap.set("v", "<", "<gv")
 keymap.set("v", ">", ">gv")
--- keymap.set("n", "j", "gj")
--- keymap.set("n", "k", "gk")
-
 keymap.set("n", "L", "$")
 keymap.set("n", "daf", "va{Vd")
 keymap.set("n", "yaf", "va{Vy")
 keymap.set("n", "mm", "mM")
-
-keymap.set("n", "p", "P")
 keymap.set("n", "mn", "mN")
 keymap.set("n", "mb", "mB")
 keymap.set("n", "ma", "mA")
@@ -43,9 +58,6 @@ keymap.set("n", "`a", "`A")
 keymap.set("n", "`b", "`B")
 keymap.set("n", "`n", "`N")
 keymap.set("n", "`m", "`M")
-keymap.set("n", "cL", "c$")
-keymap.set("n", "cH", "c0")
-keymap.set("n", "dL", "d$")
 keymap.set("n", "yp", "Yp")
 --
 
@@ -122,7 +134,8 @@ keymap.set("n", "<leader>n", ":bnext<CR>")
 keymap.set("n", "<leader>b", ":bprevious<CR>")
 keymap.set("n", "<leader>q", ":bp<bar>sp<bar>bn<bar>bd<CR>")
 -- 清除所有buffer页
-keymap.set("n", "<leader>c", ":bufdo bd<CR>")
+-- keymap.set("n", "<leader>c", ":bufdo bd<CR>")
+keymap.set("n", "<leader>c", ":q!<CR>")
 
 -- ---------- 插件 ---------- ---
 -- nvim-tree

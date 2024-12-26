@@ -45,7 +45,7 @@ local function create_floating_window(opts)
 
 	-- Create the floating window
 	local win = vim.api.nvim_open_win(buf, true, win_config)
-
+	vim.api.nvim_win_set_option(win, "relativenumber", true)
 	local _win = { buf = buf, win = win }
 	state.floating = _win
 	table.insert(M.windows, _win)
@@ -57,70 +57,115 @@ function show_all_registers()
 	local bufnr = vim.api.nvim_create_buf(false, true)
 
 	-- 初始化行内容
-	local lines = { "" }
+	local lines = {}
+	local regContent = {}
 
 	-- 定义要检查的寄存器列表
 	local registers = {
-		'"', -- 未命名寄存器
-		"*",
-		"+", -- 系统剪贴板
-		"0",
-		"1",
-		"2",
-		"3",
-		"4",
-		"5",
-		"6",
-		"7",
-		"8",
-		"9", -- 数字寄存器
-		"a",
-		"b",
-		"c",
-		"d",
-		"e",
-		"f",
-		"g",
-		"h",
-		"i",
-		"j",
-		"k",
-		"l",
-		"m",
-		"n",
-		"o",
-		"p",
-		"q",
-		"r",
-		"s",
-		"t",
-		"u",
-		"v",
-		"w",
-		"x",
-		"y",
-		"z", -- 命名寄存器
-		"-", -- 小删除寄存器
-		":", -- 最后执行的命令
-		"/",
-		"?", -- 搜索模式
+		number = {
+			"0",
+			"1",
+			"2",
+			"3",
+			"4",
+			"5",
+			"6",
+			"7",
+			"8",
+			"9", -- 数字寄存器
+		},
+		aphabet = {
+			"a",
+			"b",
+			"c",
+			"d",
+			"e",
+			"f",
+			"g",
+			"h",
+			"i",
+			"j",
+			"k",
+			"l",
+			"m",
+			"n",
+			"o",
+			"p",
+			"q",
+			"r",
+			"s",
+			"t",
+			"u",
+			"v",
+			"w",
+			"x",
+			"y",
+			"z", -- 命名寄存器
+		},
+		special = {
+			'"', -- 未命名寄存器
+			"*",
+			"+", -- 系统剪贴板
+			"-", -- 小删除寄存器
+			":", -- 最后执行的命令
+			"?", -- 搜索模式
+		},
 	}
 
-	-- 遍历所有寄存器
-	for index, reg in ipairs(registers) do
-		local contents = vim.fn.getreg(reg, 1, true) -- 获取为列表形式
-		if #contents > 0 then
-			table.insert(lines, reg .. ":")
-			for _, line in ipairs(contents) do
-				table.insert(lines, line)
+	function actionReg(r)
+		vim.fn.system("pbcopy", regContent[r])
+		-- local ns = vim.api.nvim_create_namespace("myLight")
+		-- 获取当前行号
+		-- local current_line = vim.api.nvim_win_get_cursor(0)[1] - 1
+		-- vim.api.nvim_buf_add_highlight(bufnr, ns, "ErrorMsg", 3, 0, -1)
+
+		-- print("复制到剪贴板成功", regContent[r], { silent = true })
+		-- vim.cmd("sleep " .. "100ms")
+		toggle_window()
+	end
+
+	local function travseRegContent(register)
+		-- 遍历所有寄存器
+		for index, reg in ipairs(register) do
+			local contents = vim.fn.getreg(reg, 1, true) -- 获取为列表形式
+			local _line = ""
+			if #contents > 0 then
+				for _, line in ipairs(contents) do
+					_line = _line .. line
+				end
+				regContent[reg] = _line
+				table.insert(lines, reg .. ": " .. _line)
 			end
-			table.insert(lines, "")
-			table.insert(lines, "")
 		end
 	end
 
+	table.insert(lines, "Number------------------>")
+	travseRegContent(registers.number)
+	table.insert(lines, "")
+	table.insert(lines, "字母------------------>")
+	travseRegContent(registers.aphabet)
+	table.insert(lines, "")
+	table.insert(lines, "特殊------------------>")
+	travseRegContent(registers.special)
+
 	-- 将内容写入缓冲区
 	vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, lines)
+
+	local function registerFunc(reg)
+		for _, v in ipairs(reg) do
+			if v ~= "k" and v ~= "j" then
+				vim.api.nvim_buf_set_keymap(bufnr, "n", v, ":lua actionReg('" .. v .. "')<CR>", {
+					nowait = true,
+					noremap = true,
+					silent = true,
+				})
+			end
+		end
+	end
+
+	registerFunc(registers.number)
+	registerFunc({ "a", "b", "c", "d", "f", "g" })
+	registerFunc(registers.special)
 
 	-- 设置缓冲区选项
 	vim.api.nvim_buf_set_option(bufnr, "modifiable", false)
@@ -130,7 +175,7 @@ function show_all_registers()
 	return bufnr
 end
 
-local toggle_window = function()
+function toggle_window()
 	if not vim.api.nvim_win_is_valid(state.floating.win) then
 		state.floating = create_floating_window({ buf = show_all_registers() })
 	else
@@ -140,21 +185,20 @@ end
 
 -- Create a floating window with default dimensions
 -- vim.keymap.set({ "n", "t", "i" }, "<leader>gn", toggle_terminal)
-vim.keymap.set({ "n", "t", "i" }, "<leader>gg", toggle_window)
+vim.keymap.set({ "n", "t", "i" }, "<leader>l", toggle_window)
 
-function printL()
-	local buf = vim.api.nvim_create_buf(false, true)
-	local opts = {
-		relative = "editor",
-		width = 100,
-		height = 80,
-		col = 0,
-		row = 1,
-		style = "minimal", -- No borders or extra UI elements
-		border = "rounded",
-	}
-	vim.api.nvim_open_win(buf, true, opts)
-end
+-- function printL()
+-- 	local buf = vim.api.nvim_create_buf(false, true)
+-- 	local opts = {
+-- 		relative = "editor",
+-- 		width = 100,
+-- 		height = 80,
+-- 		col = 0,
+-- 		row = 1,
+-- 		style = "minimal", -- No borders or extra UI elements
+-- 		border = "rounded",
+-- 	}
+-- 	vim.api.nvim_open_win(buf, true, opts)
+-- end
 
-vim.keymap.set({ "n", "t", "i" }, "<leader>gg", toggle_window)
-vim.keymap.set({ "n", "t", "i" }, "<leader>pr", printL)
+-- vim.keymap.set({ "n", "t", "i" }, "<leader>pr", printL)

@@ -158,7 +158,7 @@ require("solarized-osaka").setup({
 -- 	},
 -- })
 
-G.peekup_open = "<leader>l"
+-- G.peekup_open = "<leader>l"
 require("nvim-peekup.config").on_keystroke["delay"] = "100ms"
 require("nvim-peekup.config").geometry["title"] = "<<<<<<------来了老弟----->>>>>"
 
@@ -244,5 +244,87 @@ require("typescript-tools").setup({
 			enable = false,
 			filetypes = { "javascriptreact", "typescriptreact" },
 		},
+	},
+})
+
+local oil = require("oil")
+oil.setup()
+vim.keymap.set("n", "-", oil.toggle_float, {})
+
+-- require("noice").setup({
+-- 	lsp = {
+-- 		-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+-- 		override = {
+-- 			["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+-- 			["vim.lsp.util.stylize_markdown"] = true,
+-- 			["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+-- 		},
+-- 	},
+-- 	-- you can enable a preset for easier configuration
+-- 	presets = {
+-- 		bottom_search = true, -- use a classic bottom cmdline for search
+-- 		command_palette = true, -- position the cmdline and popupmenu together
+-- 		long_message_to_split = true, -- long messages will be sent to a split
+-- 		inc_rename = false, -- enables an input dialog for inc-rename.nvim
+-- 		lsp_doc_border = false, -- add a border to hover docs and signature help
+-- 	},
+-- 	cmdline = {
+-- 		view = "cmdline_popup",
+-- 		opts = {
+-- 			position = {
+-- 				row = "100%", -- 距离顶部的行数
+-- 				col = "50%", -- 水平居中
+-- 			},
+-- 			size = {
+-- 				width = 60,
+-- 				height = "auto",
+-- 			},
+-- 		},
+-- 		format = {
+-- 			-- 只为 cmdline 模式（以 : 开始的命令）配置弹出窗口
+-- 			cmdline = { pattern = "^:", icon = "", lang = "vim", conceal = false },
+--
+-- 			-- 其他模式保持默认设置（不使用弹窗）
+-- 			search_down = { kind = "search", pattern = "^/", icon = " ", lang = "regex" },
+-- 			search_up = { kind = "search", pattern = "^%?", icon = " ", lang = "regex" },
+-- 			filter = { pattern = "^:%s*!", icon = "$", lang = "bash" },
+-- 			lua = { pattern = "^:%s*lua%s+", icon = "", lang = "lua" },
+-- 			help = { pattern = "^:%s*he?l?p?%s+", icon = "" },
+-- 			input = {}, -- 用于 vim.ui.input
+-- 		},
+-- 	},
+-- })
+
+require("dashboard").setup({
+	theme = "hyper",
+	config = {
+		week_header = {
+			enable = true,
+		},
+		-- shortcut = {
+		-- 	{ desc = " Update", group = "@property", action = "Lazy update", key = "u" },
+		-- 	{
+		-- 		desc = " Files",
+		-- 		group = "Label",
+		-- 		action = "Telescope find_files",
+		-- 		key = "f",
+		-- 	},
+		-- 	{
+		-- 		desc = " Apps",
+		-- 		group = "DiagnosticHint",
+		-- 		action = "Telescope app",
+		-- 		key = "a",
+		-- 	},
+		-- 	{
+		-- 		desc = " dotfiles",
+		-- 		group = "Number",
+		-- 		action = "Telescope dotfiles",
+		-- 		key = "d",
+		-- 	},
+		-- },
+		packages = { enable = true },
+		project = { enable = true, limit = 12 },
+		mru = { limit = 12 },
+		footer = {},
 	},
 })

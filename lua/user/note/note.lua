@@ -79,6 +79,9 @@ function M.create_float_win(bufnr)
 
 	vim.api.nvim_win_set_option(M.float_win, "winblend", 10)
 	vim.api.nvim_win_set_option(M.float_win, "cursorline", true)
+	vim.api.nvim_win_set_option(M.float_win, "relativenumber", true)
+	vim.api.nvim_buf_set_option(bufnr, "buftype", "acwrite")
+	vim.api.nvim_buf_set_option(bufnr, "bufhidden", "hide")
 
 	vim.api.nvim_buf_set_keymap(
 		bufnr,

@@ -159,6 +159,27 @@ return require("packer").startup(function(use)
 		requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
 	})
 
+	use({
+		"stevearc/oil.nvim",
+		config = function() end,
+	})
+
+	use({
+		"folke/noice.nvim",
+		requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
+	})
+
+	use({
+		"nvimdev/dashboard-nvim",
+		event = "VimEnter",
+		config = function()
+			-- require("dashboard").setup({
+			-- 	-- config
+			-- })
+		end,
+		requires = { "nvim-tree/nvim-web-devicons" },
+	})
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end

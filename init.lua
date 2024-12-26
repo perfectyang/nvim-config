@@ -8,6 +8,7 @@ require("user.floaterminal")
 -- require("user.multiWin")
 require("user.floaterminal")
 require("user.note.init")
+require("user.register")
 
 -- 插件
 require("plugins/lualine")
@@ -32,7 +33,6 @@ require("plugins/goto-preview")
 require("plugins/indent-blankline")
 
 require("plugins/pluginconfigs")
-require("plugins/demoPlugin")
 require("plugins/hlight")
 
 require("leap").add_default_mappings()
