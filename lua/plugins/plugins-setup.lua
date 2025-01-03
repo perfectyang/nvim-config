@@ -109,7 +109,7 @@ return require("packer").startup(function(use)
 
 	use("mg979/vim-visual-multi")
 	use({
-		"rmagatti/goto-preview",
+		"perfectyang/goto-preview",
 	})
 
 	use("lukas-reineke/indent-blankline.nvim")
@@ -170,16 +170,19 @@ return require("packer").startup(function(use)
 	})
 
 	use({
+		"LintaoAmons/scratch.nvim",
+	})
+
+	use({
 		"nvimdev/dashboard-nvim",
-		event = "VimEnter",
-		config = function()
-			-- require("dashboard").setup({
-			-- 	-- config
-			-- })
-		end,
 		requires = { "nvim-tree/nvim-web-devicons" },
 	})
 
+	use({
+		"ibhagwan/fzf-lua",
+		-- optional for icon support
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+	})
 	if packer_bootstrap then
 		require("packer").sync()
 	end

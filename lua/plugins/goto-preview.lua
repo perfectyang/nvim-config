@@ -1,14 +1,25 @@
 require("goto-preview").setup({
-	width = 90, -- Width of the floating window
-	height = 30, -- Height of the floating window
-	border = { "↖", "─", "┐", "│", "┘", "─", "└", "│" }, -- Border characters of the floating window
+	width = 100, -- Width of the floating window
+	height = 33, -- Height of the floating window
+	border = {
+		{ "╔", "FloatBorder" },
+		{ "═", "FloatBorder" },
+		{ "╗", "FloatBorder" },
+		{ "║", "FloatBorder" },
+		{ "╝", "FloatBorder" },
+		{ "═", "FloatBorder" },
+		{ "╚", "FloatBorder" },
+		{ "║", "FloatBorder" },
+	}, -- Border characters of the floating window
 	default_mappings = false, -- Bind default mappings
 	debug = false, -- Print debug information
 	opacity = 0, -- 0-100 opacity level of the floating window where 100 is fully transparent.
 	resizing_mappings = true, -- Binds arrow keys to resizing the floating window.
 	post_open_hook = nil, -- A function taking two arguments, a buffer and a window to be ran as a hook.
 	references = { -- Configure the telescope UI for slowing the references cycling window.
-		telescope = require("telescope.themes").get_dropdown({ hide_preview = false }),
+		telescope = require("telescope.themes").get_dropdown({
+			hide_preview = false,
+		}),
 		-- telescope = require("telescope.themes").get_cursor({ hide_preview = false }),
 	},
 	-- These two configs can also be passed down to the goto-preview definition and implementation calls for one off "peak" functionality.
@@ -19,3 +30,9 @@ require("goto-preview").setup({
 	stack_floating_preview_windows = true, -- Whether to nest floating windows
 	preview_window_title = { enable = true, position = "left" }, -- Whether to set the preview window title as the filename
 })
+
+vim.keymap.set("n", "gd", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", { noremap = true })
+vim.keymap.set("n", "glt", "<cmd>lua require('goto-preview').goto_preview_type_definition()<CR>", { noremap = true })
+vim.keymap.set("n", "gpr", "<cmd>lua require('goto-preview').goto_preview_references()<CR>", { noremap = true })
+vim.keymap.set("n", "gsc", "<cmd>lua require('goto-preview').close_all_win()<CR>", { noremap = true })
+vim.keymap.set("n", "gn", "<cmd>lua require('goto-preview').go_next_win()<CR>", { noremap = true })

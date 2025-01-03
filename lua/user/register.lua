@@ -118,10 +118,13 @@ function show_all_registers()
 		-- 获取当前行号
 		-- local current_line = vim.api.nvim_win_get_cursor(0)[1] - 1
 		-- vim.api.nvim_buf_add_highlight(bufnr, ns, "ErrorMsg", 3, 0, -1)
-
 		-- print("复制到剪贴板成功", regContent[r], { silent = true })
 		-- vim.cmd("sleep " .. "100ms")
-		toggle_window()
+		vim.cmd("q")
+	end
+
+	function is_white_space(str)
+		return str:gsub("%s", "") == ""
 	end
 
 	local function travseRegContent(register)
@@ -131,21 +134,25 @@ function show_all_registers()
 			local _line = ""
 			if #contents > 0 then
 				for _, line in ipairs(contents) do
-					_line = _line .. line
+					if not is_white_space(line) then
+						_line = _line .. line
+					end
 				end
 				regContent[reg] = _line
-				table.insert(lines, reg .. ": " .. _line)
+				if not is_white_space(_line) then
+					table.insert(lines, reg .. ": " .. _line)
+				end
 			end
 		end
 	end
 
-	table.insert(lines, "Number------------------>")
+	table.insert(lines, "1、数字------------------>")
 	travseRegContent(registers.number)
 	table.insert(lines, "")
-	table.insert(lines, "字母------------------>")
+	table.insert(lines, "2、字母------------------>")
 	travseRegContent(registers.aphabet)
 	table.insert(lines, "")
-	table.insert(lines, "特殊------------------>")
+	table.insert(lines, "3、特殊------------------>")
 	travseRegContent(registers.special)
 
 	-- 将内容写入缓冲区
@@ -164,13 +171,18 @@ function show_all_registers()
 	end
 
 	registerFunc(registers.number)
-	registerFunc({ "a", "b", "c", "d", "f", "g" })
+	registerFunc({ "a", "b", "m", "n" })
 	registerFunc(registers.special)
 
 	-- 设置缓冲区选项
 	vim.api.nvim_buf_set_option(bufnr, "modifiable", false)
 	vim.api.nvim_buf_set_option(bufnr, "buftype", "nofile")
 	vim.api.nvim_buf_set_option(bufnr, "swapfile", false)
+
+	-- local ns = vim.api.nvim_create_namespace("myLight")
+	-- vim.api.nvim_buf_add_highlight(bufnr, ns, "ErrorMsg", 0, 0, -1)
+	-- vim.api.nvim_buf_add_highlight(bufnr, ns, "ErrorMsg", 12, 0, -1)
+	-- vim.api.nvim_buf_add_highlight(bufnr, ns, "ErrorMsg", 24, 0, -1)
 
 	return bufnr
 end
@@ -202,3 +214,13 @@ vim.keymap.set({ "n", "t", "i" }, "<leader>l", toggle_window)
 -- end
 
 -- vim.keymap.set({ "n", "t", "i" }, "<leader>pr", printL)
+
+vim.api.nvim_create_user_command("Pyang", function(opt)
+	local st = vim.loop.cwd()
+	local st2 = vim.fn.stdpath("data")
+
+	-- print(os.date() .. opt.args .. type(opt.args))
+	vim.api.nvim_set_current_line(vim.api.nvim_get_current_line() .. " " .. st2)
+end, { nargs = "*" })
+
+vim.keymap.set("n", "<leader>y", "<Cmd>Pyang gogog<CR>", { noremap = true, silent = true })

@@ -3,12 +3,16 @@ require("plugins/plugins-setup")
 require("core.options")
 
 require("core.keymaps")
+
+-- 用户自定义
 require("user")
 require("user.floaterminal")
 -- require("user.multiWin")
 require("user.floaterminal")
 require("user.note.init")
 require("user.register")
+require("user.extendTele")
+require("user.utils")
 
 -- 插件
 require("plugins/lualine")

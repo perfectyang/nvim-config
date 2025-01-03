@@ -78,11 +78,6 @@ keymap.set("n", "<leader>oy", ":only<CR>")
 keymap.set("n", "<leader>sv", ":vsplit<CR>") -- 水平新增窗口
 keymap.set("n", "<leader>sh", ":split<CR>") -- 垂直新增窗口
 
-keymap.set("n", "gl", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", { noremap = true })
-keymap.set("n", "glt", "<cmd>lua require('goto-preview').goto_preview_type_definition()<CR>", { noremap = true })
-keymap.set("n", "gpr", "<cmd>lua require('goto-preview').goto_preview_references()<CR>", { noremap = true })
--- keymap.set("n", "gP", "<cmd>lua require('goto-preview').close_all_win()<CR>", { noremap = true })
-
 -- aff
 
 vim.opt.backup = false
@@ -112,16 +107,16 @@ vim.opt.signcolumn = "yes"
 -- keyset("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts)
 -- keyset("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
 
-keymap.set("n", "gd", "<Plug>(coc-definition)", { silent = false })
+keymap.set("n", "gl", "<Plug>(coc-definition)", { silent = false })
 -- keymap.set("n", "gy", "<Plug>(coc-type-definition)", {silent = true})
 -- keymap.set("n", "gi", "<Plug>(coc-implementation)", {silent = true})
 -- keymap.set("n", "gr", "<Plug>(coc-references)", {silent = true})
 
 -- telescope git commands (not on youtube nvim video)
-keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>") -- list all git commits (use <cr> to checkout) ["gc" for git commits]
-keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>") -- list git commits for current file/buffer (use <cr> to checkout) ["gfc" for git file commits]
-keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>") -- list git branches (use <cr> to checkout) ["gb" for git branch]
-keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current changes per file with diff preview ["gs" for git status]
+-- keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>") -- list all git commits (use <cr> to checkout) ["gc" for git commits]
+-- keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>") -- list git commits for current file/buffer (use <cr> to checkout) ["gfc" for git file commits]
+-- keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>") -- list git branches (use <cr> to checkout) ["gb" for git branch]
+-- keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current changes per file with diff preview ["gs" for git status]
 
 -- restart lsp server (not on youtube nvim video)
 -- keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
@@ -134,8 +129,8 @@ keymap.set("n", "<leader>n", ":bnext<CR>")
 keymap.set("n", "<leader>b", ":bprevious<CR>")
 keymap.set("n", "<leader>q", ":bp<bar>sp<bar>bn<bar>bd<CR>")
 -- 清除所有buffer页
--- keymap.set("n", "<leader>c", ":bufdo bd<CR>")
-keymap.set("n", "<leader>c", ":q!<CR>")
+keymap.set("n", "<leader>c", ":bufdo bd<CR>")
+-- keymap.set("n", "<leader>c", ":q!<CR>")
 
 -- ---------- 插件 ---------- ---
 -- nvim-tree
@@ -206,14 +201,6 @@ G.blamer_relative_time = 1
 -- 		},
 -- 	},
 -- }, { prefix = "<leader>" })
-
--- telescope
-local builtin = require("telescope.builtin")
-keymap.set("n", "<leader>ff", builtin.find_files, {}) -- find files within current working directory, respects .gitignore
-keymap.set("n", "<leader>fc", builtin.live_grep, {}) -- 环境里要安装ripgrep find string in current working directory as you type
-keymap.set("n", "<leader>fb", builtin.buffers, {}) -- list open buffers in current neovim instance
-keymap.set("n", "<leader>fs", builtin.grep_string, {}) -- find string under cursor in current working directory
-keymap.set("n", "<leader>fh", builtin.help_tags, {}) -- list available help tags
 
 -- harpoon
 keymap.set("n", "<leader>mm", require("harpoon.mark").add_file)
